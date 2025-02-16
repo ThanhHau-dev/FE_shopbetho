@@ -165,6 +165,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
+  overflow-x: auto; /*Css để cho hiệu ứng cuộn trên màn hình nhỏ*/
+  -webkit-overflow-scrolling: touch; /* cho cảm giác cuộn mượt trên iOS */
+}
+
+.main__2__product .card {
+  /* css cho hiệu ứng cuộn trên màn hình nhỏ */
+  min-width: 250px; /* điều chỉnh theo nhu cầu */
+  flex-shrink: 1;
 }
 
 .main__2__product a {
@@ -281,10 +289,16 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
   row-gap: 50px;
+  /* css cho thanh cuộn sản phẩm khi màn hình nhỏ */
+  overflow-x: auto; /*Css để cho hiệu ứng cuộn trên màn hình nhỏ*/
+  -webkit-overflow-scrolling: touch; /* cho cảm giác cuộn mượt trên iOS */
 }
 
 .main__4__product .card {
   padding-bottom: 20px;
+  /* css cho hiệu ứng cuộn trên màn hình nhỏ */
+  min-width: 250px; /* điều chỉnh theo nhu cầu */
+  flex-shrink: 1;
 }
 
 .main__4__product img {
@@ -539,6 +553,7 @@ body {
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  z-index: 1000;
 }
 
 .btn__body {
@@ -628,4 +643,60 @@ body {
     left: 95%;
     font-size: 25px;
   }
+}
+
+/* ---------------------------------------- */
+/* Reponse cho tablet */
+@media screen and (max-width: 990px) {
+
+  .main__1 h4 {
+    margin-top: 30px;
+  }
+
+  /* tạo thanh cuộn ngang chung cho cả main 2 và main 4  */
+  .main__2__product,
+  .main__4__product {
+    /* Bỏ grid-template-columns cố định */
+    grid-template-columns: unset;
+    /* Sắp xếp các grid item theo hàng ngang */
+    grid-auto-flow: column;
+    /* Mỗi item có chiều rộng tối thiểu 250px (có thể điều chỉnh) */
+    grid-auto-columns: minmax(250px, 1fr);
+    /* Hiển thị thanh cuộn ngang nếu cần */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Cuộn mượt trên iOS */
+  }
+
+  .main__5__news__product {
+    /* Bỏ grid-template-columns cố định */
+    grid-template-columns: unset;
+    /* Sắp xếp các grid item theo hàng ngang */
+    grid-auto-flow: column;
+    /* Mỗi item có chiều rộng tối thiểu 250px (có thể điều chỉnh) */
+    grid-auto-columns: minmax(350px, 1fr);
+    /* Hiển thị thanh cuộn ngang nếu cần */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Cuộn mượt trên iOS */
+  }
+
+  .main__6__video iframe {
+    height: 250px;
+  }
+
+  .footer__2 {
+    margin-top: 25px;
+  }
+
+  .footer__2__cskh__item h5 {
+    font-size: 17px;
+  }
+
+  .footer__2__cskh__item p {
+    font-size: 12px;
+  }
+
+  .footer__3 .col-sm-6 {
+    margin-top: 20px;
+  }
+
 }
