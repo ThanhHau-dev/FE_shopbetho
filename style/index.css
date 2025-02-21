@@ -570,6 +570,10 @@ body {
   text-decoration: none;
 }
 
+.footer__menu__mobile {
+  display: none;
+}
+
 /* css cho nút liên hệ nhanh */
 
 .btn__body__icon {
@@ -1000,5 +1004,22 @@ body {
   .btn__body__zalo img{
     width: 40px;
     height: 40px;
+  }
+
+  .footer__menu__mobile {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: var(--color-center);
+    position: fixed;
+    bottom: 0;
+    padding: 12px;
+   
+  }
+
+  .footer__menu__mobile i {
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
   }
 }
