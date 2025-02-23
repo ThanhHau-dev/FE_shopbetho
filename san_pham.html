@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/san_pham.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/footer.css" />
+
+    <title>Sản phẩm</title>
+  </head>
+  <body>
+    <header class="Header"></header>
+
+    <main class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 main__product">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>
+
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>  <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>  <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>  <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>  <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>  <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>  <div class="card">
+              <img
+                class="card-img-top"
+                src="https://product.hstatic.net/200000692427/product/ao_chong_nang_co_mu_mau_hong_nhat_181a91e92e7b4d40ad0429c31659e076_grande.jpg"
+              />
+              <p class="card-text">
+                Áo chống nắng có mũ màu hồng nhạt
+              </p>
+
+              <h4 class="card-title">
+                265,000 vnđ
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="Footer"></footer>
+
+    <script>
+      // Đang phát triển UI trên môi trường dev, không có BE nền phần này là tạm thời
+      // Tải header từ file header.html
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.querySelector(".Header").innerHTML = data;
+        })
+        .catch((error) => console.error("Lỗi khi tải header:", error));
+
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.querySelector(".Footer").innerHTML = data;
+        })
+        .catch((error) => console.error("Lỗi khi tải footer: " + error));
+    </script>
+  </body>
+</html>
