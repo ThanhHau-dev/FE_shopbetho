@@ -121,6 +121,11 @@
     color: rgb(255, 247, 0);
 }
 
+.main__evaluate__2 {
+    display: flex;
+    justify-content: end;
+}
+
 .main__evaluate__star {
     width: 50px;
     height:50px;
@@ -176,4 +181,37 @@
     margin-top: 7px;
     padding-bottom: 20px;
     color:#db9087;
+}
+
+/* Reponse cho màn hình table. css không có gì thay đổi ở màn hình pc nhỏ */
+
+@media screen and (max-width: 990px) {
+    .main__product__details h1{
+        margin-top: 50px;
+    }
+
+    .main__evaluate__similar__roduct {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/* Reponse cho mobile */
+
+@media screen and (max-width: 700px) {
+   .main__product__details__quantity__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+   }
+
+   .main__product__details__btn {
+    width: 200px;  /*set cứng giá trị, hiện tại không lỗi, nhưng dễ bị lỗi trên các màn hình khác nhau*/
+   }
+
+   .main__product__details__quantity__grid input {
+        width: 100%;
+   }
+
+   
 }

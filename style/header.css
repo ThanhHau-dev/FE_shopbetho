@@ -146,6 +146,14 @@
     }
   }
 
+/* Reponse cho tablet */
+
+@media screen and (max-width: 990px) {
+  .header__menu__mobile {
+    top: 0;
+  }
+}
+
 /* Reponse cho mobile */
 @media screen and (max-width: 700px) {
     .header__banner {
