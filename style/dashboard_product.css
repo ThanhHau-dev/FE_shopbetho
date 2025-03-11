@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.header__1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.header__1 button {
+    justify-self: end;
+    width: 200px;
+}
+
+/* -------------------------------------- */
+.main__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.main__nav__products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}

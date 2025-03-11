@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Full Width</title>
+    <style>
+        /* CSS cho nút dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* CSS cho menu dropdown */
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100vw; /* Full chiều ngang màn hình */
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+        }
+
+        /* Khi mở dropdown */
+        .dropdown-content.show {
+            max-height: 300px; /* Tùy chỉnh chiều cao menu */
+            opacity: 1;
+        }
+
+        /* Nội dung bên trong dropdown */
+        .dropdown-content a {
+            display: block;
+            padding: 15px;
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dropdown">
+        <button class="dropdown-btn">Mở Menu</button>
+        <div class="dropdown-content">
+            <a href="#">Mục 1</a>
+            <a href="#">Mục 2</a>
+            <a href="#">Mục 3</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdownBtn = document.querySelector(".dropdown-btn");
+            const dropdownContent = document.querySelector(".dropdown-content");
+
+            // Toggle dropdown khi click vào nút
+            dropdownBtn.addEventListener("click", function(event) {
+                event.stopPropagation(); // Ngăn sự kiện lan ra ngoài
+                dropdownContent.classList.toggle("show");
+            });
+
+            // Đóng dropdown khi click ra ngoài
+            document.addEventListener("click", function(event) {
+                if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+                    dropdownContent.classList.remove("show");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

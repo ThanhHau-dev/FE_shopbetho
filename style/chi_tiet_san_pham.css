@@ -1,0 +1,217 @@
+:root {
+    --color-center: #d0b49e;
+  }
+  
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main__product__details {
+    margin-top: 10%;
+}
+
+.main__product__details .col-sm-6 {
+    padding: 35px;
+}
+
+.main__product__details h1 {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#main__product__details__status {
+    color: #db9087;
+}
+
+#main__product__details__id {
+    text-transform: uppercase;
+}
+
+#main__product__details__price {
+    font-size: 40px;
+    padding-left: 30px;
+    color:#db9087;
+}
+
+.main__product__details img {
+    width: 100%;
+}
+
+.main__product__details__img__slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.main__product__details__color {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    gap: 5px;
+}
+
+.main__product__details__color img {
+    padding-right: 15px;
+    width: 100%;
+    height: auto;
+}
+
+.main__product__details__size {
+    margin-top: 30px;
+}
+
+.main__product__details__size button {
+    border-radius: 10px;
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: white;
+    border: none;
+    border: 1px solid black;
+}
+
+.main__product__details__btn {
+    width: 200px;
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--color-center);
+    margin-left: 20px;
+}
+
+.main__product__details__quantity {
+    margin-top: 20px;
+}
+
+.main__product__details__quantity input {
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.main__product__details__shop {
+    margin-top: 30px;
+}
+
+.main__product__details__describe {
+    background-color: #f7f8f9;
+    padding: 30px;
+}
+
+.main__product__details__describe p {
+    font-size: 20px;
+}
+
+.main__evaluate {
+    margin-top: 70px;
+}
+
+.main__evaluate h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.main__evaluate__1  {
+    font-size: 80px;
+    color: rgb(255, 247, 0);
+}
+
+.main__evaluate__2 {
+    display: flex;
+    justify-content: end;
+}
+
+.main__evaluate__star {
+    width: 50px;
+    height:50px;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.main__evaluate__star:hover {
+    background-color: #ffd900;
+    border: none;
+}
+
+.main__evaluate__star:hover i {
+    color: white;
+}
+
+.main__evaluate__star i {
+    font-size: 20px;
+}
+
+.main__evaluate__similar__roduct__dady {
+    margin-top: 50px;
+}
+
+.main__evaluate__similar__roduct__dady h1 {
+    margin-bottom: 30px;
+}
+
+.main__evaluate__similar__roduct {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.main__evaluate__similar__roduct .card {
+    border: none;
+    text-align: center;
+}
+
+.main__evaluate__similar__roduct .card:hover {
+   box-shadow: 4px 5px 8px rgb(220, 220, 220);
+}
+
+.main__evaluate__similar__roduct h5 {
+    margin-top: 15px;
+}
+
+.main__evaluate__similar__roduct h4 {
+    margin-top: 7px;
+    padding-bottom: 20px;
+    color:#db9087;
+}
+
+/* Reponse cho màn hình table. css không có gì thay đổi ở màn hình pc nhỏ */
+
+@media screen and (max-width: 990px) {
+    .main__product__details h1{
+        margin-top: 50px;
+    }
+
+    .main__evaluate__similar__roduct {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/* Reponse cho mobile */
+
+@media screen and (max-width: 700px) {
+   .main__product__details__quantity__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+   }
+
+   .main__product__details__btn {
+    width: 200px;  /*set cứng giá trị, hiện tại không lỗi, nhưng dễ bị lỗi trên các màn hình khác nhau*/
+   }
+
+   .main__product__details__quantity__grid input {
+        width: 100%;
+   }
+
+   
+}

@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  margin-top: 10%;
+}
+
+.main img {
+  width: 100%;
+}
+
+.main img {
+  padding: 20px;
+}
+
+.main h1 {
+  margin: 20px;
+  font-weight: bold;
+}
+
+.main h4 {
+  margin: 20px;
+  font-weight: bold;
+}
+
+.main p {
+  margin: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Giới hạn 3 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Thêm dấu "..." khi bị cắt */
+}
+
+.main__list__blog {
+    margin-top: 40px;
+}
+
+.main__list__blog h3 {
+    margin-top: 100px;
+    font-weight: bold;
+}
+
+.main__list__blog .card {
+  border: none;
+  padding: 20px;
+}
+
+.main__list__blog .card:hover {
+    box-shadow: 1px 2px 5px 8px rgb(236, 236, 236);
+}
+
+
+.main__list__blog .card img {
+  border-radius: 50px;
+}
+
+.main__list__blog .card:hover img {
+    width: 105%;
+  }
+
+.main__list__blog .card h5 {
+  margin: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.main__list__blog a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+/* Không cần reponse bằng tay, layout đơn giản đã có bootrap xử lý */

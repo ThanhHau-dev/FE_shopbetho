@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f8efe7;
+}
+
+
+.welcome__admin {
+    padding: 50px;
+    height: fit-content;
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 2px 3px 4px rgb(237, 237, 237);
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 50px;
+}
+
+.welcome__admin h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 10%;
+    text-transform: uppercase;
+}
+
+.welcome__admin p {
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.welcome__admin__btn{
+    display: flex;
+}
+
+.welcome__admin__btn__product, .welcome__admin__btn__blog {
+    width: 100%;
+    padding: 15px; 
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 20px;
+    background-color: #d0b49e;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.welcome__admin__banner {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome__admin__btn__exit {
+    display: flex;
+    justify-content: end;
+    margin-top: 10%;
+}
+
+/* Reponse mobile màn lớn*/
+@media screen and (max-width: 700px) {
+    .welcome__admin h1 {
+        font-size: 50px;
+    }
+
+    .welcome__admin__btn__product, .welcome__admin__btn__blog {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .welcome__admin h1 {
+        font-size: 30px;
+    }
+
+    .welcome__admin__btn{
+        display: block;
+    }
+
+    .welcome__admin__btn__product, .welcome__admin__btn__blog {
+        font-size: 15px;
+    }
+}

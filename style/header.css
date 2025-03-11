@@ -1,0 +1,321 @@
+:root {
+    --color-center: #d0b49e;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  .header__menu {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgb(194, 194, 194);
+  }
+  
+  .header__menu__1 {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    justify-items: center;
+  }
+  
+  .header__menu__1__btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-center);
+    color: white;
+  }
+  
+  .header__menu__1 img {
+    width: 25%;
+    object-fit: cover;
+  }
+  
+  .header__menu__1 i {
+    font-size: 25px;
+    margin-left: 8px;
+  }
+  
+  #header___menu__1__user {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+  }
+  
+  .header__menu__2 {
+    /* display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+    padding-bottom: 10px;
+    margin-top: 18px;
+  }
+  
+  .header__menu__2 a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .header__banner img {
+    margin-top: 100px;
+    width: 100%;
+  }
+  
+  .header__banner__mobile {
+    /* class này dùng để hiện thị trên giao diện mobile */
+    display: none;
+  }
+  
+  .header__banner__mobile img {
+    width: 100%;
+  }
+  
+  .header__menu__mobile {
+    display: none;
+  }
+
+  /* Reponse cho pc màn hình nhỏ */
+@media screen and (max-width: 1200px) {
+    .header__menu {
+      display: none;
+    }
+  
+    .header__menu__mobile {
+      display: block;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 100px;
+      padding-left: 100px;
+      position: fixed;
+      width: 100%;
+      background-color: white;
+      z-index: 1000;
+      border-bottom: 1px solid rgb(180, 180, 180);
+      justify-items: center;
+    }
+  
+    .header__menu__mobile__1 {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 0px;
+    }
+  
+    .header__menu__mobile__1 img {
+      width: 10%;
+    }
+  
+    .header__menu__mobile__1__nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+    }
+  
+    .header__menu__mobile__1__nav i {
+      font-size: 30px;
+      justify-content: end;
+      display: flex;
+    }
+  
+    .header__menu__mobile__2 {
+      margin-top: 15px;
+      display: none;
+      position: relative;
+      align-items: center;
+    }
+  
+    .header__menu__mobile__2 i {
+      position: absolute;
+      left: 95%;
+      font-size: 25px;
+    }
+  }
+
+/* Reponse cho tablet */
+
+@media screen and (max-width: 990px) {
+  .header__menu__mobile {
+    top: 0;
+  }
+}
+
+/* Reponse cho mobile */
+@media screen and (max-width: 700px) {
+    .header__banner {
+        display: none;
+      }
+    
+      .header__menu__mobile {
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        top: 0;
+      }
+    
+      .header__menu__mobile__1 img {
+        width: 18%;
+      }
+    
+      .header__menu__mobile__1__nav i {
+        margin-left: 35px;
+        font-size: 25px;
+      }
+    
+      .header__menu__mobile__2 i {
+        left: 91%;
+        font-size: 18px;
+      }
+    
+      .header__banner__mobile {
+        display: block;
+      }
+    
+      .header__banner__mobile img {
+        margin-top: 50px;
+      }
+
+      .footer__1__slogan {
+        left: 0;
+      }
+    
+      .footer__1__slogan .col-sm-6 h1 {
+        font-size: 20px;
+      }
+    
+      .footer__1__slogan__btn {
+        margin-bottom: 25px;
+      }
+    
+      .footer__1__slogan__btn img {
+        width: 120px;
+      }
+    
+      .footer__1__slogan__btn p {
+        left: 24px;
+        top: 0px;
+        font-size: 16px;
+      }
+    
+      #footer__2_hr {
+        display: none;
+      }
+    
+      .footer__2__cskh {
+        margin-top: 100px;
+        grid-template-columns: unset;
+      }
+    
+      .footer__3 {
+        display: none;
+      }
+    
+      .footer__3__mobile {
+        display: block;
+      }
+    
+      /* css cho dropdow footer3 */
+      .footer__3__mobile__dropdow {
+        position: relative;
+        display: inline-block;
+      }
+    
+      .footer__3__mobile__dropdow__btn {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        width: 100vw; /*full chiều ngang*/
+        transform: background-color 0.3s ease-in-out;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        border: none;
+      }
+    
+      .footer__3__mobile__dropdow__btn::after {
+        content: "";
+        position: absolute;
+        bottom: 0px; /* Điều chỉnh vị trí */
+        left: 0%;
+        width: 30%; /* Độ dài border */
+        height: 1px; /* Độ dày border */
+        background-color: black; /* Màu border */
+        margin-left: 10px;
+      }
+    
+      .footer__3__mobile__dropdow__btn h4 {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    
+      .footer__3__mobile__dropdow__content {
+        /* position: absolute; */
+        top: 100%;
+        left: 0;
+        width: 100vw; /*full chiều ngang*/
+        background-color: white;
+        box-sizing: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.3s ease;
+      }
+    
+      .footer__3__mobile__dropdow__content.show {
+        max-height: 400px;
+        opacity: 1;
+      }
+    
+      .footer__3__mobile__dropdow__content a {
+        display: block;
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+        text-align: start;
+        font-size: 15px;
+      }
+    
+      .footer__3__mobile__dropdow__content a:last-child {
+        border-bottom: none;
+      }
+    
+      .footer__3__mobile__dropdow__content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .footer__menu__mobile {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        background-color: var(--color-center);
+        position: fixed;
+        bottom: 0;
+        padding: 12px;
+       
+      }
+    
+      .footer__menu__mobile i {
+        display: flex;
+        font-size: 25px;
+        justify-content: center;
+      }
+}
+  

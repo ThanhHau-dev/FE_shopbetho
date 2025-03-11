@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+    margin-top: 15%;
+}
+
+.main .card {
+    padding: 15px;
+    border: none;
+    margin: 10px;
+}
+
+.main .card:hover {
+    box-shadow: 1px 2px 10px 7px rgb(234, 234, 234);
+    cursor: pointer;
+}
+
+.main .card img {
+    border-radius: 15px;
+}
+
+.main .card:hover img {
+    width: 98%;
+}
+
+.main .card h4 {
+    margin-top: 20px;
+}
+
+.main .card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Giới hạn 3 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Thêm dấu "..." khi bị cắt */
+}
+
+.main .card a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+
+/* Ở trang này layout đơn giản nên đã được bootrap xử lý, không cần reponse */
