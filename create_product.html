@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style/create_product.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/footer.css" />
+
+    <title>Thêm sản phẩm mới</title>
+  </head>
+  <body>
+    <div class="Header"></div>
+
+    <main>
+      <div class="CreateProduct">
+        <div class="container">
+          <div class="CreateProductSubmit">
+            <h2>Thêm sản phẩm mới</h2>
+            <button class="CreateProductSubmit__Btn">Thêm</button>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="CreateProductMain">
+            <div class="CreateProduct__GeneralInfor">
+              <h3>Thông tin tổng quan</h3>
+              <p>Tên sản phẩm</p>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Ví dụ: áo khoác mùa hè cho bé"
+              />
+
+              <p>Miêu tả sản phẩm</p>
+              <textarea type="text" class="form-control">
+                        Một sản phẩm mới đến từ shop bé thơ. Áo khoác giúp bé mặc mát hơn với mùa hè.
+                        Chất liệu vải cao cấp, thoáng mát. Phù hợp với da nhạy cảm của bé. Không kích ứng.
+                        Các bậc phụ huynh yên tâm khi trang bị cho bé yêu nhà mình!
+                    </textarea
+              >
+
+              <div class="CreateProduct__GeneralInfor__StatusId">
+                <div class="CreateProduct__GeneralInfor__StatusId__Status">
+                  <div class="CreateProduct__GeneralInfor__StatusId__Status__1">
+                    <lable>Còn hàng</lable>
+                    <input type="radio" />
+                  </div>
+
+                  <div class="CreateProduct__GeneralInfor__StatusId__Status__2">
+                    <lable>Hết hàng</lable>
+                    <input type="radio" />
+                  </div>
+                </div>
+
+                <div class="CreateProduct__GeneralInfor__StatusId__Id">
+                  <lable>Mã sản phẩm</lable>
+                  <input type="text" placeholder="Nhập mã sản phẩm" />
+                </div>
+              </div>
+
+              <div class="CreateProductMain__Price">
+                <p>Giá sản phẩm</p>
+                <input type="number" class="form-control" />
+              </div>
+            </div>
+
+            <div class="CreateProduct__GeneralInfor__UploadImg">
+              <img
+                style="width: 100%"
+                src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+              />
+
+              <div class="CreateProduct__GeneralInfor__UploadImg__Detail">
+                <img
+                  style="width: 80%"
+                  src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                />
+                <img
+                  style="width: 80%"
+                  src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                />
+                <img
+                  style="width: 80%"
+                  src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                />
+                <img
+                  style="width: 80%"
+                  src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                />
+              </div>
+
+              <div class="CreateProduct__GeneralInfor__UploadImg__Category">
+                <h4 class="fw-bold">Phân loại</h4>
+                <p>Phân loại sản phẩm</p>
+
+                <select class="form-control"> -- Lựa chọn --
+                  <option>Áo ngắn tay</option>
+                  <option>Áo dài tay</option>
+                  <option>Đồ bộ</option>
+                  <option>Đồ mùa hè</option>
+                  <option>Đồ mùa đông</option>
+                </select>
+
+                <button class="CreateProduct__GeneralInfor__UploadImg__Category__Btn">Đồng ý</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="Footer"></div>
+    <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Đang phát triển UI trên môi trường dev, không có BE nền phần này là tạm thời
+      // Tải header từ file header.html
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.querySelector(".Header").innerHTML = data;
+        })
+        .catch((error) => console.error("Lỗi khi tải header:", error));
+
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.querySelector(".Footer").innerHTML = data;
+        })
+        .catch((error) => console.error("Lỗi khi tải footer: " + error));
+    </script>
+  </body>
+</html>
