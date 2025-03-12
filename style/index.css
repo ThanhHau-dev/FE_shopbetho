@@ -89,6 +89,10 @@ body {
   display: none;
 }
 
+.Menu__sidebar__mobile {
+  display: none;
+}
+
 /* --------------------------------------- */
 
 .main__1 {
@@ -674,6 +678,98 @@ body {
     left: 95%;
     font-size: 25px;
   }
+
+  .Menu__sidebar__mobile {
+    /* display: flex; */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3000;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.2); /* Đen với độ trong suốt 50% */
+
+  }
+
+  .Menu__sidebar__mobile__nav {
+    background-color: white;
+    width: 90vw;
+    color: black;
+    padding: 20px;
+    right: 0;
+    top: 0;
+    position: fixed;
+    height: 100vh;
+  }
+
+  .Menu__sidebar__mobile__nav__dropdow__btn {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    width: 100%; /*full chiều ngang*/
+    transform: background-color 0.3s ease-in-out;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    border: none;
+  }
+
+  .Menu__sidebar__mobile__nav__dropdow__btn i {
+    font-size: 26px;
+  }
+
+  .Menu__sidebar__mobile__nav__dropdow__content {
+    top: 100%;
+    left: 0;
+    width: 100vw; /*full chiều ngang*/
+    background-color: white;
+    box-sizing: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+  }
+
+  .Menu__sidebar__mobile__nav__dropdow__content.show {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .Menu__sidebar__mobile__nav__dropdow__content a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    text-align: start;
+    font-size: 15px;
+  }
+
+  .show{
+    width: 100%;
+  }
+
+  .Menu__sidebar__mobile__nav__input{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: #d0b49e;
+    height: fit-content;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .Menu__sidebar__mobile__nav__input p {
+    color: white;
+  }
+
+  .Menu__sidebar__mobile__nav__input__submit {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  width: 100%;
+  }
+
 }
 
 /* ---------------------------------------- */
@@ -987,6 +1083,8 @@ body {
     background-color: #f1f1f1;
   }
 
+ 
+
   /* css cho nút liên hệ nhanh bản mobile */
 
   .btn__body__icon {
@@ -997,11 +1095,11 @@ body {
     display: none;
   }
 
-  .btn__body__icon i{
+  .btn__body__icon i {
     font-size: 45px;
   }
 
-  .btn__body__zalo img{
+  .btn__body__zalo img {
     width: 40px;
     height: 40px;
   }
@@ -1014,7 +1112,6 @@ body {
     position: fixed;
     bottom: 0;
     padding: 12px;
-   
   }
 
   .footer__menu__mobile i {

@@ -17,6 +17,7 @@
     />
 
     <link rel="stylesheet" href="style/create_product.css" />
+    <link rel="stylesheet" href="style/create_blog.css" />
     <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/footer.css" />
 
@@ -29,7 +30,7 @@
       <div class="CreateProduct">
         <div class="container">
           <div class="CreateProductSubmit">
-            <h2>Thêm sản phẩm mới</h2>
+            <h2>Thêm sản bài viết mới</h2>
             <button class="CreateProductSubmit__Btn">Thêm</button>
           </div>
         </div>
@@ -38,48 +39,39 @@
           <div class="CreateProductMain">
             <div class="CreateProduct__GeneralInfor">
               <h3>Thông tin tổng quan</h3>
-              <p>Tên sản phẩm</p>
+              <p>Tiêu đề bài viết</p>
               <input
                 class="form-control"
                 type="text"
                 placeholder="Ví dụ: áo khoác mùa hè cho bé"
               />
 
-              <p>Miêu tả sản phẩm</p>
-              <textarea
-                type="text"
-                class="form-control"
-                placeholder="Ví dụ: Áo quần con nít thường được thiết kế với màu sắc tươi sáng, họa tiết ngộ nghĩnh, đáng yêu. Chất liệu vải mềm mại, thoáng mát như cotton, lanh, hoặc nỉ, đảm bảo sự thoải mái cho làn da nhạy cảm của trẻ. Kiểu dáng đa dạng, từ những bộ đồ liền thân ấm áp cho trẻ sơ sinh, đến những chiếc áo thun, quần short năng động cho trẻ lớn hơn. Các chi tiết như nơ, bèo nhún, hình thú cưng, hoặc nhân vật hoạt hình được thêu hoặc in trên áo quần, tạo điểm nhấn thu hút sự chú ý của trẻ."
-              >
-              </textarea>
+              <p>Đoạn văn</p>
+              <div id="editor" contenteditable="true">
+                Viết nội dung tại đây...
+            </div>
 
-              <div class="CreateProduct__GeneralInfor__StatusId">
-                <div class="CreateProduct__GeneralInfor__StatusId__Status">
-                  <div class="CreateProduct__GeneralInfor__StatusId__Status__1">
-                    <lable>Còn hàng</lable>
-                    <input type="radio" />
-                  </div>
+            <!-- Chức năng chỉnh sửa văn bản như word - đang test-->
+            <div id="toolbar">
+                <button class="toolbar-btn" onclick="formatText('bold')"><b>B</b></button>
+                <button class="toolbar-btn" onclick="formatText('italic')"><i>I</i></button>
+                <button class="toolbar-btn" onclick="formatText('underline')"><u>U</u></button>
+                <select class="font-size-select" onchange="changeFontSize(this.value)">
+                    <option value="3">Cỡ chữ</option>
+                    <option value="1">Nhỏ</option>
+                    <option value="2">Vừa</option>
+                    <option value="3">Bình thường</option>
+                    <option value="4">Lớn</option>
+                    <option value="5">Rất lớn</option>
+                </select>
+                <button class="toolbar-btn" onclick="formatText('justifyLeft')">📜</button>
+                <button class="toolbar-btn" onclick="formatText('justifyCenter')">📌</button>
+                <button class="toolbar-btn" onclick="formatText('justifyRight')">📍</button>
+            </div>
+        
+            <!-- kết thúc đoạn test -->
 
-                  <div class="CreateProduct__GeneralInfor__StatusId__Status__2">
-                    <lable>Hết hàng</lable>
-                    <input type="radio" />
-                  </div>
-                </div>
 
-                <div class="CreateProduct__GeneralInfor__StatusId__Id">
-                  <lable>Mã sản phẩm</lable>
-                  <input
-                    class="m-3"
-                    type="text"
-                    placeholder="Nhập mã sản phẩm"
-                  />
-                </div>
-              </div>
-
-              <div class="CreateProductMain__Price">
-                <p>Giá sản phẩm</p>
-                <input type="number" class="form-control" />
-              </div>
             </div>
 
             <div class="CreateProduct__GeneralInfor__UploadImg">
@@ -110,17 +102,7 @@
               </div>
 
               <div class="CreateProduct__GeneralInfor__UploadImg__Category">
-                <h4 class="fw-bold">Phân loại</h4>
-                <p>Phân loại sản phẩm</p>
-
-                <select class="form-control">
-                  -- Lựa chọn --
-                  <option>Áo ngắn tay</option>
-                  <option>Áo dài tay</option>
-                  <option>Đồ bộ</option>
-                  <option>Đồ mùa hè</option>
-                  <option>Đồ mùa đông</option>
-                </select>
+                <h4 class="fw-bold">Bạn có muốn thêm đoạn văn này ?</h4>
 
                 <button
                   class="CreateProduct__GeneralInfor__UploadImg__Category__Btn"
@@ -155,6 +137,39 @@
           document.querySelector(".Footer").innerHTML = data;
         })
         .catch((error) => console.error("Lỗi khi tải footer: " + error));
+
+
+    // Js để xử lý công cụ văn bản như word, tạm thời để đây vì phát triển FE chưa xong, chưa có file riêng
+    const editor = document.getElementById("editor");
+        const toolbar = document.getElementById("toolbar");
+
+        editor.addEventListener("mouseup", function (event) {
+            let selection = window.getSelection();
+            if (selection.toString().length > 0) {
+                let range = selection.getRangeAt(0);
+                let rect = range.getBoundingClientRect();
+                
+                toolbar.style.display = "flex";
+                toolbar.style.top = `${window.scrollY + rect.top - 50}px`;
+                toolbar.style.left = `${rect.left}px`;
+            } else {
+                toolbar.style.display = "none";
+            }
+        });
+
+        function formatText(command) {
+            document.execCommand(command, false, null);
+        }
+
+        function changeFontSize(size) {
+            document.execCommand("fontSize", false, size);
+        }
+
+        document.addEventListener("click", function (event) {
+            if (!toolbar.contains(event.target) && event.target !== editor) {
+                toolbar.style.display = "none";
+            }
+        });
     </script>
   </body>
 </html>
