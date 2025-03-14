@@ -36,7 +36,9 @@ body {
 }
 
 .welcome__admin__btn{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .welcome__admin__btn__product, .welcome__admin__btn__blog {
