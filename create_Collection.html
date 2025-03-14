@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.css"
-    />
+   
     <link
       rel="stylesheet"
       href="Resource/bootstrap-5.3.3-dist/css/bootstrap.min.css"
@@ -97,7 +94,7 @@
         )
         .forEach((div) => {
           div.addEventListener("click", function () {
-            currentImg = this.querySelector("img"); // Lưu lại ảnh cần thay đổi
+            currentImg = this; // Lưu lại ảnh cần thay đổi
             imageInput.click();
           });
         });
