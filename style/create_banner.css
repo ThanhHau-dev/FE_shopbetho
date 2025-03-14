@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.CreateBanner {
+    margin-top: 10%;
+    background-color: #f9f9f9;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.CreateBanner h5 {
+    margin-bottom: 30px;
+}
+
+.CreateBanner__title {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+}
+
+.CreateBanner__title h1 {
+    font-weight: bold;
+}
+
+.CreateBanner__title__btn {
+    background-color: red;
+    padding: 20px;
+    background-color: rgb(243, 175, 93);
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.CreateBanner__1, .CreateBanner__2 {
+    margin-top: 10%;
+}
+
+.CreateBanner__1__add, .CreateBanner__2__add {
+    background-color: #efefef;
+    justify-content: center;
+    display: flex;
+    border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
+
+}
+
+
+.CreateBanner__1__add img, .CreateBanner__2__add img {
+    width: 10%;
+    height: 10%;
+    justify-content:center;
+}
+
+.CreateBanner__1__add img:hover, .CreateBanner__2__add img:hover {
+    width: 12%;
+    height: 12%;
+}
