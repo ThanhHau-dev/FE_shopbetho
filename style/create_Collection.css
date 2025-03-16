@@ -37,6 +37,7 @@ body {
 
 /* Khúc này dùng chung templet từ index nên copy qua */
 .main__3__collection__img {
+    justify-items: center;
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     padding: 30px;

@@ -16,10 +16,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style/create_product.css" />
     <link rel="stylesheet" href="style/create_blog.css" />
-    <link rel="stylesheet" href="style/header.css" />
-    <link rel="stylesheet" href="style/footer.css" />
 
     <title>Thêm sản phẩm mới</title>
   </head>
@@ -46,59 +43,58 @@
                 placeholder="Ví dụ: áo khoác mùa hè cho bé"
               />
 
-              <p>Đoạn văn</p>
+              <p class="CreateProduct__GeneralInfor__passage">Đoạn văn</p>
               <div id="editor" contenteditable="true">
                 Viết nội dung tại đây...
-            </div>
+              </div>
 
-            <!-- Chức năng chỉnh sửa văn bản như word - đang test-->
-            <div id="toolbar">
-                <button class="toolbar-btn" onclick="formatText('bold')"><b>B</b></button>
-                <button class="toolbar-btn" onclick="formatText('italic')"><i>I</i></button>
-                <button class="toolbar-btn" onclick="formatText('underline')"><u>U</u></button>
-                <select class="font-size-select" onchange="changeFontSize(this.value)">
-                    <option value="3">Cỡ chữ</option>
-                    <option value="1">Nhỏ</option>
-                    <option value="2">Vừa</option>
-                    <option value="3">Bình thường</option>
-                    <option value="4">Lớn</option>
-                    <option value="5">Rất lớn</option>
+              <!-- Chức năng chỉnh sửa văn bản như word - đang test-->
+              <div id="toolbar">
+                <button class="toolbar-btn" onclick="formatText('bold')">
+                  <b>B</b>
+                </button>
+                <button class="toolbar-btn" onclick="formatText('italic')">
+                  <i>I</i>
+                </button>
+                <button class="toolbar-btn" onclick="formatText('underline')">
+                  <u>U</u>
+                </button>
+                <select
+                  class="font-size-select"
+                  onchange="changeFontSize(this.value)"
+                >
+                  <option value="3">Cỡ chữ</option>
+                  <option value="1">Nhỏ</option>
+                  <option value="2">Vừa</option>
+                  <option value="3">Bình thường</option>
+                  <option value="4">Lớn</option>
+                  <option value="5">Rất lớn</option>
                 </select>
-                <button class="toolbar-btn" onclick="formatText('justifyLeft')">📜</button>
-                <button class="toolbar-btn" onclick="formatText('justifyCenter')">📌</button>
-                <button class="toolbar-btn" onclick="formatText('justifyRight')">📍</button>
-            </div>
-        
-            <!-- kết thúc đoạn test -->
+                <button class="toolbar-btn" onclick="formatText('justifyLeft')">
+                  📜
+                </button>
+                <button
+                  class="toolbar-btn"
+                  onclick="formatText('justifyCenter')"
+                >
+                  📌
+                </button>
+                <button
+                  class="toolbar-btn"
+                  onclick="formatText('justifyRight')"
+                >
+                  📍
+                </button>
+              </div>
 
-
+              <!-- kết thúc đoạn test -->
             </div>
 
             <div class="CreateProduct__GeneralInfor__UploadImg">
               <div class="CreateProduct__GeneralInfor__UploadImg__avt">
-                <img
-                  style="width: 100%"
-                  src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
-                />
-
-                <div class="CreateProduct__GeneralInfor__UploadImg__Detail">
-                  <img
-                    style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
-                  />
-                  <img
-                    style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
-                  />
-                  <img
-                    style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
-                  />
-                  <img
-                    style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
-                  />
-                </div>
+                <img id="CreateProduct__GeneralInfor__UploadImg__avt__Preview" style="width: 100%" src="./Resource/img/add img.png" />
+                <span>Thêm hình ảnh</span>
+                <input type="file" id="CreateProduct__GeneralInfor__UploadImg__Input" accept="image/*" hidden />
               </div>
 
               <div class="CreateProduct__GeneralInfor__UploadImg__Category">
@@ -121,55 +117,6 @@
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      // Đang phát triển UI trên môi trường dev, không có BE nền phần này là tạm thời
-      // Tải header từ file header.html
-      fetch("header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.querySelector(".Header").innerHTML = data;
-        })
-        .catch((error) => console.error("Lỗi khi tải header:", error));
-
-      fetch("footer.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.querySelector(".Footer").innerHTML = data;
-        })
-        .catch((error) => console.error("Lỗi khi tải footer: " + error));
-
-
-    // Js để xử lý công cụ văn bản như word, tạm thời để đây vì phát triển FE chưa xong, chưa có file riêng
-    const editor = document.getElementById("editor");
-        const toolbar = document.getElementById("toolbar");
-
-        editor.addEventListener("mouseup", function (event) {
-            let selection = window.getSelection();
-            if (selection.toString().length > 0) {
-                let range = selection.getRangeAt(0);
-                let rect = range.getBoundingClientRect();
-                
-                toolbar.style.display = "flex";
-                toolbar.style.top = `${window.scrollY + rect.top - 50}px`;
-                toolbar.style.left = `${rect.left}px`;
-            } else {
-                toolbar.style.display = "none";
-            }
-        });
-
-        function formatText(command) {
-            document.execCommand(command, false, null);
-        }
-
-        function changeFontSize(size) {
-            document.execCommand("fontSize", false, size);
-        }
-
-        document.addEventListener("click", function (event) {
-            if (!toolbar.contains(event.target) && event.target !== editor) {
-                toolbar.style.display = "none";
-            }
-        });
-    </script>
+    <script src="JS/create_blog.js"></script>
   </body>
 </html>
