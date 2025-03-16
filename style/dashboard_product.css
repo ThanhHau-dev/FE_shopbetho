@@ -1,60 +1,73 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .header {
-    margin-top: 10%;
+  margin-top: 10%;
 }
 
 .header__1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .header__1 button {
-    justify-self: end;
-    width: 200px;
+  justify-self: end;
+  width: 200px;
 }
 
 .header__1 h1 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .header__1__btn {
-    background-color: rgb(240, 193, 133);
-    border: none;
-    border-radius: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
+  background-color: rgb(240, 193, 133);
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
 }
 
 .header__2 {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    gap: 30px;
-    margin-top: 3%;
-    margin-bottom: 4%;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 30px;
+  margin-top: 3%;
+  margin-bottom: 4%;
 }
 
 .header__2__btn {
-    background-color: rgb(240, 193, 133);
-    border: none;
-    border-radius: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
+  background-color: rgb(240, 193, 133);
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
 }
 /* -------------------------------------- */
 
 .main__navbar {
-    background-color: rgb(244, 244, 244);
-    padding-top: 30px;
-    padding-bottom: 20px;
+  background-color: rgb(244, 244, 244);
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.main__product__total {
+  border: 0.5px solid black;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.main__outstanding {
+  border: 0.5px solid black;
+  padding: 50px;
+  margin-top: 100px;
+  border-radius: 30px;
 }
