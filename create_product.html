@@ -80,31 +80,53 @@
                 <p>Giá sản phẩm</p>
                 <input type="number" class="form-control" />
               </div>
+
+              <div class="CreateProduct__GeneralInfor__outstanding">
+                <p>Sản phẩm này có dùng để hiện thị sản phẩm nỗi bật không ?</p>
+                <lable class="m-2">Có</lable>
+                <input type="radio" />
+
+                <label class="m-2">Không</label>
+                <input type="radio" />
+              </div>
             </div>
 
             <div class="CreateProduct__GeneralInfor__UploadImg">
               <div class="CreateProduct__GeneralInfor__UploadImg__avt">
+                <p>Chọn hình ảnh</p>
+                <input
+                  type="file"
+                  id="CreateProduct__GeneralInfor__UploadImg__avt__input"
+                  accept="image/*"
+                  hidden
+                />
+
                 <img
+                  class="addImgAvt"
                   style="width: 100%"
-                  src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                  src="./Resource/img/add img.png"
                 />
 
                 <div class="CreateProduct__GeneralInfor__UploadImg__Detail">
                   <img
+                    class="addImgDetail__1"
                     style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                    src="./Resource/img/add img.png"
                   />
                   <img
+                    class="addImgDetail__2"
                     style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                    src="./Resource/img/add img.png"
                   />
                   <img
+                    class="addImgDetail__3"
                     style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                    src="./Resource/img/add img.png"
                   />
                   <img
+                    class="addImgDetail__4"
                     style="width: 80%"
-                    src="https://product.hstatic.net/200000692427/product/bo_coc_tay_mau_nau_a2e08520d52f4b428e6f08ab2a607dab_master.jpg"
+                    src="./Resource/img/add img.png"
                   />
                 </div>
               </div>
@@ -139,22 +161,6 @@
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      // Đang phát triển UI trên môi trường dev, không có BE nền phần này là tạm thời
-      // Tải header từ file header.html
-      fetch("header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.querySelector(".Header").innerHTML = data;
-        })
-        .catch((error) => console.error("Lỗi khi tải header:", error));
-
-      fetch("footer.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.querySelector(".Footer").innerHTML = data;
-        })
-        .catch((error) => console.error("Lỗi khi tải footer: " + error));
-    </script>
+    <script src="JS/create_product.js"></script>
   </body>
 </html>
