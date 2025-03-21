@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
 
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style/create_blog.css" />
 
     <title>Thêm sản phẩm mới</title>
@@ -43,58 +45,51 @@
                 placeholder="Ví dụ: áo khoác mùa hè cho bé"
               />
 
+              <!-- Thanh công cụ cho tool giống word -->
+              <div id="toolbar">
+                <select class="ql-font"></select>
+                <select class="ql-size"></select>
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+                <button class="ql-blockquote"></button>
+                <button class="ql-code-block"></button>
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+                <button class="ql-align" value=""></button>
+                <button class="ql-align" value="center"></button>
+                <button class="ql-align" value="right"></button>
+                <button class="ql-align" value="justify"></button>
+                <button class="ql-image"></button>
+                <button class="ql-link"></button>
+                <button class="ql-color"></button>
+                <button class="ql-background"></button>
+              </div>
+
+              <!-- Kết thúc thanh công cụ -->
+
+
               <p class="CreateProduct__GeneralInfor__passage">Đoạn văn</p>
-              <div id="editor" contenteditable="true">
+              <div id="editor-container">
                 Viết nội dung tại đây...
               </div>
-
-              <!-- Chức năng chỉnh sửa văn bản như word - đang test-->
-              <div id="toolbar">
-                <button class="toolbar-btn" onclick="formatText('bold')">
-                  <b>B</b>
-                </button>
-                <button class="toolbar-btn" onclick="formatText('italic')">
-                  <i>I</i>
-                </button>
-                <button class="toolbar-btn" onclick="formatText('underline')">
-                  <u>U</u>
-                </button>
-                <select
-                  class="font-size-select"
-                  onchange="changeFontSize(this.value)"
-                >
-                  <option value="3">Cỡ chữ</option>
-                  <option value="1">Nhỏ</option>
-                  <option value="2">Vừa</option>
-                  <option value="3">Bình thường</option>
-                  <option value="4">Lớn</option>
-                  <option value="5">Rất lớn</option>
-                </select>
-                <button class="toolbar-btn" onclick="formatText('justifyLeft')">
-                  📜
-                </button>
-                <button
-                  class="toolbar-btn"
-                  onclick="formatText('justifyCenter')"
-                >
-                  📌
-                </button>
-                <button
-                  class="toolbar-btn"
-                  onclick="formatText('justifyRight')"
-                >
-                  📍
-                </button>
-              </div>
-
-              <!-- kết thúc đoạn test -->
             </div>
 
             <div class="CreateProduct__GeneralInfor__UploadImg">
               <div class="CreateProduct__GeneralInfor__UploadImg__avt">
-                <img id="CreateProduct__GeneralInfor__UploadImg__avt__Preview" style="width: 100%" src="./Resource/img/add img.png" />
+                <img
+                  id="CreateProduct__GeneralInfor__UploadImg__avt__Preview"
+                  style="width: 100%"
+                  src="./Resource/img/add img.png"
+                />
                 <span>Thêm hình ảnh</span>
-                <input type="file" id="CreateProduct__GeneralInfor__UploadImg__Input" accept="image/*" hidden />
+                <input
+                  type="file"
+                  id="CreateProduct__GeneralInfor__UploadImg__Input"
+                  accept="image/*"
+                  hidden
+                />
               </div>
 
               <div class="CreateProduct__GeneralInfor__UploadImg__Category">
@@ -116,6 +111,9 @@
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Dùng cho thư viện để chỉnh sửa tool giống word, khi nào hoàn thành thì tải thư viện về máy sau -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
     <script src="JS/create_blog.js"></script>
   </body>

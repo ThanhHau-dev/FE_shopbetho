@@ -121,6 +121,69 @@ body {
     margin-top: 50px;
 }
 
+
+.CreateProduct__GeneralInfor__UploadImg__Color {
+    display: flex;
+    gap: 20px;
+}
+
+.CreateProduct__GeneralInfor__UploadImg__ColorAdd__Btn {
+    width: 50%;
+    border-radius: 30px;
+    padding: 20px;
+    border: none;
+    background-color: #d0b49e;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.CreateProduct__GeneralInfor__UploadImg__ColorDel__Btn {
+    width: 50%;
+    border-radius: 30px;
+    padding: 20px;
+    border: none;
+    background-color: #da0000;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.CreateProduct__GeneralInfor__UploadImg__Size{
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 18px;
+}
+
+.CreateProduct__GeneralInfor__UploadImg__Size__Detail {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.CreateProduct__GeneralInfor__UploadImg__SizeAdd__Btn {
+    width: 50%;
+    border-radius: 30px;
+    padding: 20px;
+    border: none;
+    background-color:#d0b49e;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.CreateProduct__GeneralInfor__UploadImg__SizeDel__Btn {
+    width: 50%;
+    border-radius: 30px;
+    padding: 20px;
+    border: none;
+    background-color:#da0000;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 .CreateProduct__GeneralInfor__UploadImg__Category {
     background-color: #f9f9f9;
     padding: 20px;
@@ -145,3 +208,4 @@ body {
     border-radius: 30px;
     margin-top: 20px;
 }
+

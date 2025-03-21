@@ -39,4 +39,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
-  
+// Xử lý phần thêm size
+
+// Dom phần tử để render
+let RenderListSize = document.querySelector(".CreateProduct__GeneralInfor__UploadImg__Size__RenderList");
+
+// Dom ô input cho người dùng nhập dữ liệu
+
+const inputData = document.querySelector(".CreateProduct__GeneralInfor__UploadImg__Size__Input");
+
+// Dom nút thêm size
+const sizeBtn = document.querySelector(".CreateProduct__GeneralInfor__UploadImg__SizeAdd__Btn");
+
+// Tạo mảng rỗng chứa list
+let RenderListSizeData = [];
+
+// Sự kiện khi nhấn nút thì sẽ thêm size
+
+sizeBtn.addEventListener("click", () => {
+
+    // Kiểm tra điều kiện, có rồi thì k cho thêm, chưa thì ok
+    if(!RenderListSizeData.includes(inputData.value)) {
+      RenderListSizeData.push(inputData.value)
+      RenderListSize.innerHTML = RenderListSizeData;
+      inputData.value = "";
+    }
+})
+
