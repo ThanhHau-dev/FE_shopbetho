@@ -30,11 +30,20 @@ upLoadImg.addEventListener("change", function (event) {
 
 /********************************************************************************************/ 
 
-// Xử lý phần nhập nội dung blog chỉnh sửa như word
-
-var quill = new Quill('#editor-container', {
-  theme: 'snow',  // Giao diện giống Word
-  modules: {
-      toolbar: '#toolbar' // Gán thanh công cụ vào trình soạn thảo
-  }
+  // Khởi tạo trình soạn thảo Quill
+  var quill = new Quill('#CreateProduct__GeneralInfor__Editor', {
+    theme: 'snow',  // Giao diện giống Word
+    modules: {
+        toolbar: '#toolbar' // Gán thanh công cụ vào trình soạn thảo
+    }
 });
+
+// Hàm lấy nội dung và xem trước bài viết
+const btnActionContent = document.querySelector(".CreateProduct__GeneralInfor__UploadImg__Category__Btn");
+
+btnActionContent.addEventListener("click", () => {
+
+  var dataContent = quill.root.innerHTML;
+
+  document.querySelector(".PreviewContent").innerHTML = dataContent;
+})

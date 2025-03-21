@@ -8,12 +8,17 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <style>
         #editor-container {
-            height: 300px; /* Chiều cao của trình soạn thảo */
+            min-height: 300px; /* Chiều cao của trình soạn thảo */
+            height: fit-content;
             background: #fff;
         }
         .editor-wrapper {
             width: 80%;
             margin: 20px auto;
+        }
+
+        img {
+            width: 100%;
         }
     </style>
 </head>
@@ -46,7 +51,7 @@
     <div id="editor-container"></div>
 
     <!-- Nút lấy dữ liệu -->
-    <button onclick="getContent()">Lấy nội dung</button>
+    <button onclick="getContent()">Kiểm tra lại nội dung</button>
 
     <!-- Kết quả nội dung xuất ra -->
     <h3>Nội dung đã nhập:</h3>
@@ -68,7 +73,35 @@
     function getContent() {
         var content = quill.root.innerHTML; // Lấy nội dung HTML
         document.getElementById('output').innerHTML = content; // Hiển thị nội dung
+
+        console.log(typeof content);
+        console.log(content);
     }
+
+    // Gửi dữ liệu cho BE
+
+    // chỗ này tạm thời dùng fetch
+
+    fetch('route mà BE tạo', {
+  method: 'POST', // Phương thức HTTP
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(content)
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Lỗi:', error));
+
+
+//   Cảnh bảo người dùng trước khi reaload lại trang
+window.addEventListener("beforeunload", function (event) {
+  event.preventDefault(); // Một số trình duyệt yêu cầu dòng này
+  event.returnValue = "Bạn có muốn rời khỏi trang này? Dữ liệu có thể chưa được lưu."; // Hiển thị cảnh báo
+});
+
+
+
 </script>
 
 </body>

@@ -8,41 +8,22 @@ body {
     font-family: sans-serif;
 }
 
-/* đang test công cụ chỉnh sửa văn bản như word */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}
-#editor {
-    width: 100%;
-    min-height: 200px;
-    border: 1px solid #ccc;
-    padding: 10px;
+
+/* css phần công cụ word cho mục nhập dữ liệu */
+#CreateProduct__GeneralInfor__Editor {
+    border-radius: 20px;
+    padding: 20px;
     margin-top: 10px;
-    outline: none;
-}
-#toolbar {
-    display: none;
-    position: absolute;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    padding: 5px;
-    border-radius: 5px;
-}
-.toolbar-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 0 5px;
-}
-.font-size-select {
-    font-size: 14px;
-    margin-left: 10px;
-    cursor: pointer;
+    background-color: #efefef;
+    min-height: 300px;
+    height: fit-content;
 }
 
+#CreateProduct__GeneralInfor__Editor:active {
+    background-color: white;
+}
+
+/* ************************************************************** */
 
 /* Phần code css này dùng chung với page create_product, nên sẽ một vài css dư thừa bị copy qua */
 *{
@@ -114,23 +95,6 @@ body {
     border-radius: 18px;
     background-color: #efefef;
     border: none;
-}
-
-/* cái này dùng cho file của tạo bài viết, để tạm đây nha */
-#editor {
-    width: 100%;
-    max-width: 800px;
-    min-height: 400px;
-    border-radius: 18px;
-    background-color: #efefef;
-    border: none;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    overflow-y: auto;
-}
-#editor:focus-within {
-    background-color: white;
-    border: 0.5px solid rgb(0, 128, 255);
 }
 
 /* hết phần css ké của bài viết */

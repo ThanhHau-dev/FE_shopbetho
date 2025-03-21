@@ -16,7 +16,10 @@
       rel="stylesheet"
     />
 
+    <!--Thêm thư viện bằng CDN tạm thời-->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
 
     <link rel="stylesheet" href="style/create_blog.css" />
 
@@ -45,7 +48,9 @@
                 placeholder="Ví dụ: áo khoác mùa hè cho bé"
               />
 
-              <!-- Thanh công cụ cho tool giống word -->
+              <p class="CreateProduct__GeneralInfor__passage">Đoạn văn</p>
+
+              <!-- Thanh công cụ và ô nhập dữ liệu -->
               <div id="toolbar">
                 <select class="ql-font"></select>
                 <select class="ql-size"></select>
@@ -65,15 +70,16 @@
                 <button class="ql-link"></button>
                 <button class="ql-color"></button>
                 <button class="ql-background"></button>
-              </div>
+            </div>
+            
+              <div id="CreateProduct__GeneralInfor__Editor">Nhập bài viết vào đây ...</div>
+             
+              <!-- Kết thúc thanh công cụ và ô nhập dữ liệu -->
 
-              <!-- Kết thúc thanh công cụ -->
+              <!-- Xem trước bản blog -->
 
+              <div class="PreviewContent"></div>
 
-              <p class="CreateProduct__GeneralInfor__passage">Đoạn văn</p>
-              <div id="editor-container">
-                Viết nội dung tại đây...
-              </div>
             </div>
 
             <div class="CreateProduct__GeneralInfor__UploadImg">
@@ -93,7 +99,7 @@
               </div>
 
               <div class="CreateProduct__GeneralInfor__UploadImg__Category">
-                <h4 class="fw-bold">Bạn có muốn thêm đoạn văn này ?</h4>
+                <h4 class="fw-bold">Xem trước trang blog của bạn !</h4>
 
                 <button
                   class="CreateProduct__GeneralInfor__UploadImg__Category__Btn"
@@ -111,10 +117,7 @@
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-
-    <!--Dùng cho thư viện để chỉnh sửa tool giống word, khi nào hoàn thành thì tải thư viện về máy sau -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-
     <script src="JS/create_blog.js"></script>
+
   </body>
 </html>
