@@ -88,6 +88,21 @@ addSizeBtn.addEventListener("click", () => {
   inputSize.value = "";
 });
 
-/*
-Chưa làm sự kiện cho nút xóa size và chưa có logic gửi về cho backend
-*/ 
+// Gắn sự kiện cho nút xóa
+rmSizeBtn.addEventListener("click", () => {
+  
+  // DOM tất cả các phần tử trong trang có class đang được chọn
+  let selectSize = document.querySelectorAll(".size__box.selectSize");
+
+  selectSize.forEach((size) => {
+    size.remove();
+
+    let sizeText = size.innerText;
+
+    let indexSize = dataSize.indexOf(sizeText);
+
+    dataSize.splice(indexSize, 1);
+  });
+
+  console.log(dataSize);
+})
