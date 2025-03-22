@@ -1,69 +1,114 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quill Editor Example</title>
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Size Sản Phẩm</title>
     <style>
-        /* Thêm CSS tùy chỉnh của bạn ở đây */
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px;
+      }
+      .container {
+        width: 300px;
+        text-align: center;
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 5px;
+        font-size: 16px;
+      }
+      .size-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .size-item {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .size-item.selected {
+        background-color: red;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="CreateProductMain">
-            <div class="CreateProduct__GeneralInfor">
-                <h3>Thông tin tổng quan</h3>
-                <p>Tiêu đề bài viết</p>
-                <input class="form-control" type="text" placeholder="Ví dụ: áo khoác mùa hè cho bé"/>
-
-                <p class="CreateProduct__GeneralInfor__passage">Đoạn văn</p>
-
-                <div id="toolbartest">
-                    <select class="ql-font"></select>
-                    <select class="ql-size"></select>
-                    <button class="ql-bold">B</button>
-                    <button class="ql-italic">I</button>
-                    <button class="ql-underline">U</button>
-                    <button class="ql-strike">S</button>
-                    <button class="ql-blockquote">Blockquote</button>
-                    <button class="ql-code-block">Code</button>
-                    <button class="ql-list" value="ordered">OL</button>
-                    <button class="ql-list" value="bullet">UL</button>
-                    <button class="ql-align" value="left">Left</button>
-                    <button class="ql-align" value="center">Center</button>
-                    <button class="ql-align" value="right">Right</button>
-                    <button class="ql-align" value="justify">Justify</button>
-                    <button class="ql-image">Image</button>
-                    <button class="ql-link">Link</button>
-                    <button class="ql-color">Color</button>
-                    <button class="ql-background">Background</button>
-                </div>
-                
-                <div id="editor-CreateProduct__GeneralInfor__Editor"></div>
-
-                <button onclick="getContent()">Kiểm tra lại nội dung</button>
-            </div>
-
-            <div class="CreateProduct__GeneralInfor__UploadImg">
-                <!-- Thêm phần hiển thị ảnh và các nút khác ở đây -->
-            </div>
-        </div>
+      <h2>Quản lý Size</h2>
+      <input type="text" id="sizeInput" placeholder="Nhập size" />
+      <button onclick="addSize()">Thêm Size</button>
+      <button onclick="deleteSize()">Xóa Size</button>
+      <div class="size-list" id="sizeList"></div>
     </div>
 
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script>
-        var quill = new Quill('#editor-CreateProduct__GeneralInfor__Editor', {
-            theme: 'snow',  // Giao diện giống Word
-            modules: {
-                toolbar: '#toolbartest' // Gán thanh công cụ vào trình soạn thảo
-            }
+      // Tạo mảng chứa dữ liệu của size
+
+      var dataSize = [];
+
+      // đây chỉ mới là phần hiển thị, cần tạo mảng để lưu vào biến gửi về cho BE
+      function addSize() {
+        let sizeInput = document.getElementById("sizeInput"); //Chỗ này lấy dữ liệu từ input
+        let sizeValue = sizeInput.value.trim(); // dữ liệu size từ người dùng nhập vào đã được loại bỏ khoảng trắng
+        if (sizeValue === "") return; // nếu giá trị người dùng nhập vào rỗng thì hàm dừng lại
+
+        let sizeList = document.getElementById("sizeList"); // DOM phần tử dùng để hiển thị dữ liệu size sau khi thêm
+        let sizeItem = document.createElement("div"); // tạo ra một phần tử div vào tài liệu, trong js lưu vào biến
+        sizeItem.classList.add("size-item"); // dùng classList để thêm css cho phần tử vừa thêm (css)
+        sizeItem.innerText = sizeValue; // Dùng innerText để chèn nội dung vào phần tử vừa thêm (content Element)
+
+        // Thêm dữ liệu vào mảng
+        dataSize.push(sizeValue);
+
+        // Gắn sự kiện click lên phần tử khi phần tử được nhấn
+        sizeItem.onclick = function () {
+          this.classList.toggle("selected"); // dùng this để chỉ định là chính nó, chính phần tử đang được nhấn
+          // và sử dụng classList để thêm css. Nhưng vì nó là lựa chọn, chọn hoặc bỏ, nên sử dụng toggle để kiểm
+          // tra cho ngắn gọn code và nó cũng đc xây dựng sẵn trong js. Quên chức năng toggle thì lên mạng coi lại
+        };
+
+        // Sử dụng phương thức có sẵn của js. appendChild là phương thức thêm phần tử con vào cuối danh sách của phần tử cha
+        sizeList.appendChild(sizeItem); // tham số gọi phương thức là phần tử cha, tham số trong hàm phương thức
+        // là phần tử con cần được thêm vào
+
+        sizeInput.value = ""; // reset lại ô input
+
+        console.log(dataSize);
+      }
+
+      // Hàm xóa size
+      function deleteSize() {
+        let selectedSizes = document.querySelectorAll(".size-item.selected"); // DOM tất cả
+        // các phần tử trong trang có class đang được chọn
+
+        selectedSizes.forEach((size) => {
+          size.remove(); // Dùng forEach để lặp và duyệt qua từng phần tử
+          // biến size sau khi lặp đại diện cho phần tử đó gọi tới phương thức remove()
+
+          // Xóa dữ liệu trong mảng chứa dữ liệu size
+
+          // Lấy nội dung text của phần tử được chọn
+          let sizeText = size.innerText;
+
+          // Tìm vị trí của phần tử vừa chọn trong mảng bằng indexOf
+          let indexSize = dataSize.indexOf(sizeText);
+
+          // Xóa size ra khỏi mảng dữ liệu
+          dataSize.splice(indexSize, 1); // cấu trúc cú pháp của phương thức splice()
         });
 
-        function getContent() {
-            var content = quill.root.innerHTML;
-            console.log(content); // In ra nội dung HTML
-        }
+        console.log(dataSize)
+      }
+
+    //   ok xong
     </script>
-</body>
+  </body>
 </html>

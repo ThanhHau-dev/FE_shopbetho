@@ -184,6 +184,21 @@ body {
     font-weight: bold;
 }
 
+.CreateProduct__GeneralInfor__UploadImg__Size__RenderList {
+    margin-top: 20px;
+}
+
+.size__box {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #d0b49e;
+}
+
+.size__box.selectSize {
+    background-color: red;
+}
+
+
 .CreateProduct__GeneralInfor__UploadImg__Category {
     background-color: #f9f9f9;
     padding: 20px;
@@ -208,4 +223,3 @@ body {
     border-radius: 30px;
     margin-top: 20px;
 }
-
