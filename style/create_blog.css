@@ -10,6 +10,13 @@ body {
 
 
 /* css phần công cụ word cho mục nhập dữ liệu */
+
+#toolbar {
+    /* position: fixed; */
+    z-index: 100;
+    background-color: white;
+}
+
 #CreateProduct__GeneralInfor__Editor {
     border-radius: 20px;
     padding: 20px;
@@ -19,8 +26,20 @@ body {
     height: fit-content;
 }
 
-#CreateProduct__GeneralInfor__Editor:active {
-    background-color: white;
+
+/* css dành cho phần xem trước nội dung blog */
+
+.PreviewContent__Box {
+    margin-top: 100px;
+}
+
+.PreviewContent {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.PreviewContent img {
+    width: 100%;
 }
 
 /* ************************************************************** */
