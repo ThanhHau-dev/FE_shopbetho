@@ -121,6 +121,10 @@ body {
     margin-top: 50px;
 }
 
+.CreateProduct__GeneralInfor__UploadImg__Detail img {
+    width: 100%;
+    height: 70px;
+}
 
 .CreateProduct__GeneralInfor__UploadImg__Color {
     display: flex;
