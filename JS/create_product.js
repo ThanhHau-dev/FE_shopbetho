@@ -1,30 +1,63 @@
-// Xử lý phần thêm hình ảnh
-const addImgAvt = document.querySelector(".addImgAvt");
-const addImgDetail1 = document.querySelector(".addImgDetail__1");
-const addImgDetail2 = document.querySelector(".addImgDetail__2");
-const addImgDetail3 = document.querySelector(".addImgDetail__3");
-const addImgDetail4 = document.querySelector(".addImgDetail__4");
-const upLoadImg = document.querySelector(
-  ".CreateProduct__GeneralInfor__UploadImg__avt__input"
-);
-// Sự kiện khi user nhấn vào biểu tượng hình ảnh thêm
+// // Xử lý phần thêm hình ảnh
+// const addImgAvt = document.querySelector(".addImgAvt");
+// const addImgDetail1 = document.querySelector(".addImgDetail__1");
+// const addImgDetail2 = document.querySelector(".addImgDetail__2");
+// const addImgDetail3 = document.querySelector(".addImgDetail__3");
+// const addImgDetail4 = document.querySelector(".addImgDetail__4");
+// const upLoadImg = document.querySelector(
+//   ".CreateProduct__GeneralInfor__UploadImg__avt__input"
+// );
+// // Sự kiện khi user nhấn vào biểu tượng hình ảnh thêm
 
-let currentTarget = null;
+// let currentTarget = null;
 
+// document.addEventListener("DOMContentLoaded", function () {
+//   const fileInput = document.querySelector(
+//     "#CreateProduct__GeneralInfor__UploadImg__avt__input"
+//   );
+
+//   // Lặp qua tất cả ảnh có thuộc tính data-target
+//   document.querySelectorAll("img").forEach((img) => {
+//     img.addEventListener("click", function () {
+//       currentTarget = this; // Lưu lại ảnh đang được chọn
+//       fileInput.click();
+//     });
+//   });
+
+//   // Khi chọn file ảnh
+//   fileInput.addEventListener("change", function () {
+//     if (fileInput.files.length > 0 && currentTarget) {
+//       const file = fileInput.files[0];
+//       const reader = new FileReader();
+
+//       reader.onload = function (e) {
+//         currentTarget.src = e.target.result;
+//       };
+
+//       reader.readAsDataURL(file);
+//     }
+//   });
+// });
+
+// test thử phần xử lý sự kiện thêm ảnh cho phần tử gốc lẫn phần tử trong template do chatgpt viết
 document.addEventListener("DOMContentLoaded", function () {
   const fileInput = document.querySelector(
     "#CreateProduct__GeneralInfor__UploadImg__avt__input"
   );
 
-  // Lặp qua tất cả ảnh có thuộc tính data-target
-  document.querySelectorAll("img").forEach((img) => {
-    img.addEventListener("click", function () {
-      currentTarget = this; // Lưu lại ảnh đang được chọn
-      fileInput.click();
-    });
-  });
+  let currentTarget = null;
 
-  // Khi chọn file ảnh
+  // 🎯 Gán sự kiện click cho phần tử cha
+  document
+    .querySelector(".CreateProduct__GeneralInfor__UploadImg__avt")
+    .addEventListener("click", function (event) {
+      if (event.target.tagName === "IMG") {
+        currentTarget = event.target;
+        fileInput.click();
+      }
+    });
+
+  // 📤 Khi chọn file ảnh
   fileInput.addEventListener("change", function () {
     if (fileInput.files.length > 0 && currentTarget) {
       const file = fileInput.files[0];
@@ -38,6 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// á đù, được luôn, vậy đéo sửa nữa
+
 /****************************************************************/
 // Xử lý phần thêm size
 
@@ -90,7 +126,6 @@ addSizeBtn.addEventListener("click", () => {
 
 // Gắn sự kiện cho nút xóa
 rmSizeBtn.addEventListener("click", () => {
-  
   // DOM tất cả các phần tử trong trang có class đang được chọn
   let selectSize = document.querySelectorAll(".size__box.selectSize");
 
@@ -105,4 +140,25 @@ rmSizeBtn.addEventListener("click", () => {
   });
 
   console.log(dataSize);
-})
+});
+
+/**************************************************************************************/
+
+
+// Xử lý phần thêm màu mới
+
+// Xử lý phần logic hiển thị
+// gán sự kiện cho nút thêm màu
+  const addColor = document.querySelector(".CreateProduct__GeneralInfor__UploadImg__ColorAdd__Btn");
+
+  addColor.addEventListener("click", () => {
+
+    let template = document.querySelector(".CreateProduct__GeneralInfor__UploadImg__avt__box__template");
+    let clone = template.content.cloneNode(true);
+
+    //thêm phần vừa tạo và khung mới
+    document.querySelector(".CreateProduct__GeneralInfor__UploadImg__avt").appendChild(clone);
+  })
+
+  // xử lý được phần logic hiển thị thêm màu, chưa xử lý phần locgic hiển thị xóa màu
+  // chưa xử lý data gửi về BE

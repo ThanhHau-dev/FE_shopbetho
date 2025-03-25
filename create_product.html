@@ -93,43 +93,7 @@
 
             <div class="CreateProduct__GeneralInfor__UploadImg">
               <div class="CreateProduct__GeneralInfor__UploadImg__avt">
-                <h4 class="fw-bold">Chọn màu theo hình ảnh</h4>
-                <input
-                  type="file"
-                  id="CreateProduct__GeneralInfor__UploadImg__avt__input"
-                  accept="image/*"
-                  hidden
-                />
-
-                <img
-                  class="addImgAvt"
-                  style="width: 100%"
-                  src="./Resource/img/add img.png"
-                />
-
-                <div class="CreateProduct__GeneralInfor__UploadImg__Detail">
-                  <img
-                    class="addImgDetail__1"
-                    style="width: 80%"
-                    src="./Resource/img/add img.png"
-                  />
-                  <img
-                    class="addImgDetail__2"
-                    style="width: 80%"
-                    src="./Resource/img/add img.png"
-                  />
-                  <img
-                    class="addImgDetail__3"
-                    style="width: 80%"
-                    src="./Resource/img/add img.png"
-                  />
-                  <img
-                    class="addImgDetail__4"
-                    style="width: 80%"
-                    src="./Resource/img/add img.png"
-                  />
-                </div>
-                <hr />
+                <h4 class="fw-bold">Quản lý màu</h4>
                 <div class="CreateProduct__GeneralInfor__UploadImg__Color">
                   <button
                     class="CreateProduct__GeneralInfor__UploadImg__ColorAdd__Btn"
@@ -143,15 +107,111 @@
                     Xóa màu
                   </button>
                 </div>
+
+                <!-- Bắt đầu ô chọn màu -->
+
+                <div class="CreateProduct__GeneralInfor__UploadImg__avt__box">
+                  <input
+                    type="file"
+                    id="CreateProduct__GeneralInfor__UploadImg__avt__input"
+                    accept="image/*"
+                    hidden
+                  />
+
+                  <img
+                    class="addImgAvt"
+                    style="width: 100%"
+                    src="./Resource/img/add img.png"
+                  />
+
+                  <div class="CreateProduct__GeneralInfor__UploadImg__Detail">
+                    <img
+                      class="addImgDetail__1"
+                      style="width: 80%"
+                      src="./Resource/img/add img.png"
+                    />
+                    <img
+                      class="addImgDetail__2"
+                      style="width: 80%"
+                      src="./Resource/img/add img.png"
+                    />
+                    <img
+                      class="addImgDetail__3"
+                      style="width: 80%"
+                      src="./Resource/img/add img.png"
+                    />
+                    <img
+                      class="addImgDetail__4"
+                      style="width: 80%"
+                      src="./Resource/img/add img.png"
+                    />
+                  </div>
+                </div>
+
+                <!-- Kết thúc ô chọn màu -->
+
+                <!-- template cho ô chọn màu -->
+
+                <template
+                  class="CreateProduct__GeneralInfor__UploadImg__avt__box__template"
+                >
+                  <div
+                    class="CreateProduct__GeneralInfor__UploadImg__avt__box__template__div"
+                  >
+                    <input
+                      type="file"
+                      id="CreateProduct__GeneralInfor__UploadImg__avt__input"
+                      accept="image/*"
+                      hidden
+                    />
+
+                    <img
+                      class="addImgAvt"
+                      style="width: 100%"
+                      src="./Resource/img/add img.png"
+                    />
+
+                    <div class="CreateProduct__GeneralInfor__UploadImg__Detail">
+                      <img
+                        class="addImgDetail__1"
+                        style="width: 80%"
+                        src="./Resource/img/add img.png"
+                      />
+                      <img
+                        class="addImgDetail__2"
+                        style="width: 80%"
+                        src="./Resource/img/add img.png"
+                      />
+                      <img
+                        class="addImgDetail__3"
+                        style="width: 80%"
+                        src="./Resource/img/add img.png"
+                      />
+                      <img
+                        class="addImgDetail__4"
+                        style="width: 80%"
+                        src="./Resource/img/add img.png"
+                      />
+                    </div>
+                  </div>
+                </template>
+                <!-- Kết thúc template -->
               </div>
 
               <div class="CreateProduct__GeneralInfor__UploadImg__Size">
                 <h4 class="fw-bold">Tạo size</h4>
-                <input type="text" class="form-control CreateProduct__GeneralInfor__UploadImg__Size__Input" />
+                <input
+                  type="text"
+                  class="form-control CreateProduct__GeneralInfor__UploadImg__Size__Input"
+                />
 
-                <div class="CreateProduct__GeneralInfor__UploadImg__Size__RenderList"></div>
+                <div
+                  class="CreateProduct__GeneralInfor__UploadImg__Size__RenderList"
+                ></div>
 
-                <div class="CreateProduct__GeneralInfor__UploadImg__Size__Detail">
+                <div
+                  class="CreateProduct__GeneralInfor__UploadImg__Size__Detail"
+                >
                   <button
                     class="CreateProduct__GeneralInfor__UploadImg__SizeAdd__Btn"
                   >

@@ -1,98 +1,132 @@
-<form id="add-product-form">
-  <label>Tên sản phẩm:</label>
-  <input type="text" id="product-name" required />
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Hình Ảnh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-group {
+            border: 2px dashed #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .image-slot {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .image-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+        .image-slot input {
+            display: none;
+        }
+        .add-button, .submit-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center;">Quản Lý Hình Ảnh</h2>
+        <button class="add-button" onclick="addImageGroup()">Thêm khu vực ảnh</button>
+        <form id="imageForm"></form>
+        <button class="submit-button" onclick="submitImages()">Gửi ảnh</button>
+    </div>
 
-  <label>Mô tả sản phẩm:</label>
-  <textarea id="product-description"></textarea>
+    <script>
+        // chỗ này là khởi tạo hàm thêm ảnh
+        function addImageGroup() {
+            const form = document.getElementById('imageForm'); // DOM phần tử để render
+            const container = document.createElement('div'); // tạo phần tử mới
+            container.className = 'image-group'; // add css cho phần tử vừa tạo
+            
+            // tạo ô chọn ảnh, vòng lặp chạy 5 lần
+            for (let i = 0; i < 5; i++) {
 
-  <!-- Khu vực nhập Size -->
-  <h3>Chọn Size</h3>
-  <div id="size-container">
-    <input type="text" placeholder="Nhập size..." class="size-input" />
-    <button type="button" id="add-size">Thêm Size</button>
-  </div>
-  <ul id="size-list"></ul>
+                const slot = document.createElement('label'); // lại tiếp tục tạo phần tử
+                slot.className = 'image-slot'; // add css cho phần tử
+                
+                const input = document.createElement('input'); // tiếp tục tạo phần tử
+                input.type = 'file'; // gắn kiểu cho phần tử
+                input.accept = 'image/*'; // cho phần tử chức năng chọn hình ảnh
+                input.onchange = function(event) { previewImage(event, slot); };
+                
+                slot.appendChild(input); // đưa phần tử vô phần tử cha
+                slot.innerHTML += '<span>+</span>'; // thay đổi nội dung phần tử
+                container.appendChild(slot); // lại tiếp tục đưa phần tử vào phần tử cha
 
-  <!-- Khu vực nhập Màu + Hình ảnh -->
-  <h3>Chọn Màu (Kèm Hình Ảnh)</h3>
-  <div id="color-container">
-    <input type="file" id="color-image" />
-    <button type="button" id="add-color">Thêm Màu</button>
-  </div>
-  <ul id="color-list"></ul>
+                // chỗ đưa phần tử vào này hơi lòng vòng, từ con tới cha tới cố
+            }
+            
+            // Dùng phương thức để add phần tử mới vào 
+            form.appendChild(container);
+        }
 
-  <!-- Khu vực nhập giá & số lượng -->
-  <h3>Thiết lập giá và tồn kho</h3>
-  <table id="variant-table">
-    <thead>
-      <tr>
-        <th>Size</th>
-        <th>Màu</th>
-        <th>Giá</th>
-        <th>Tồn Kho</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <button type="submit">Lưu Sản Phẩm</button>
-</form>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sizeInput = document.querySelector(".size-input");
-    const addSizeBtn = document.getElementById("add-size");
-    const sizeList = document.getElementById("size-list");
-
-    const colorInput = document.getElementById("color-image");
-    const addColorBtn = document.getElementById("add-color");
-    const colorList = document.getElementById("color-list");
-
-    const variantTable = document.querySelector("#variant-table tbody");
-
-    let sizes = [];
-    let colors = [];
-
-    // Thêm size
-    addSizeBtn.addEventListener("click", function () {
-      const size = sizeInput.value.trim();
-      if (size && !sizes.includes(size)) {
-        sizes.push(size);
-        sizeList.innerHTML += `<li>${size}</li>`;
-        updateVariants();
-      }
-      sizeInput.value = "";
-    });
-
-    // Thêm màu sắc với hình ảnh
-    addColorBtn.addEventListener("click", function () {
-      const file = colorInput.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const colorObj = { image: e.target.result, id: colors.length + 1 };
-          colors.push(colorObj);
-          colorList.innerHTML += `<li><img src="${colorObj.image}" width="50"></li>`;
-          updateVariants();
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    // Cập nhật bảng biến thể
-    function updateVariants() {
-      variantTable.innerHTML = "";
-      sizes.forEach((size) => {
-        colors.forEach((color) => {
-          variantTable.innerHTML += `
-          <tr>
-            <td>${size}</td>
-            <td><img src="${color.image}" width="50"></td>
-            <td><input type="number" min="0" placeholder="Giá"></td>
-            <td><input type="number" min="0" placeholder="Tồn kho"></td>
-          </tr>`;
-        });
-      });
-    }
-  });
-</script>
+        // function này dùng để duyệt file từ máy người dùng và hiển thị nó
+        function previewImage(event, slot) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    slot.innerHTML = `<img src="${e.target.result}">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // function này dùng để gửi về BE, nhưng chưa hoàn thiện, kệ mẹ nó
+        function submitImages() {
+            const imageGroups = [];
+            document.querySelectorAll('.image-group').forEach(group => {
+                let images = [];
+                group.querySelectorAll('input[type=file]').forEach(input => {
+                    if (input.files.length > 0) {
+                        images.push(input.files[0].name);
+                    }
+                });
+                if (images.length > 0) {
+                    imageGroups.push({ representative: images[0], images: images });
+                }
+            });
+            
+            console.log('Dữ liệu gửi đi:', imageGroups);
+            alert('Dữ liệu ảnh đã được gửi!');
+        }
+    </script>
+</body>
+</html>
