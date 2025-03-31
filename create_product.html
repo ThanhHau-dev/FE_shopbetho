@@ -40,7 +40,7 @@
               <h3>Thông tin tổng quan</h3>
               <p>Tên sản phẩm</p>
               <input
-                class="form-control"
+                class="form-control CreateProduct__GeneralInfor__NameProduct"
                 type="text"
                 placeholder="Ví dụ: áo khoác mùa hè cho bé"
               />
@@ -48,7 +48,7 @@
               <p>Miêu tả sản phẩm</p>
               <textarea
                 type="text"
-                class="form-control"
+                class="form-control CreateProduct__GeneralInfor__DescribeProduct"
                 placeholder="Ví dụ: Áo quần con nít thường được thiết kế với màu sắc tươi sáng, họa tiết ngộ nghĩnh, đáng yêu. Chất liệu vải mềm mại, thoáng mát như cotton, lanh, hoặc nỉ, đảm bảo sự thoải mái cho làn da nhạy cảm của trẻ. Kiểu dáng đa dạng, từ những bộ đồ liền thân ấm áp cho trẻ sơ sinh, đến những chiếc áo thun, quần short năng động cho trẻ lớn hơn. Các chi tiết như nơ, bèo nhún, hình thú cưng, hoặc nhân vật hoạt hình được thêu hoặc in trên áo quần, tạo điểm nhấn thu hút sự chú ý của trẻ."
               >
               </textarea>
@@ -57,19 +57,29 @@
                 <div class="CreateProduct__GeneralInfor__StatusId__Status">
                   <div class="CreateProduct__GeneralInfor__StatusId__Status__1">
                     <lable>Còn hàng</lable>
-                    <input type="radio" />
+                    <input
+                      id="CreateProduct__GeneralInfor__StatusId__Status__1"
+                      value="CreateProduct__GeneralInfor__StatusId__Status__1"
+                      name="CreateProduct__GeneralInfor__StatusId__Status"
+                      type="radio"
+                    />
                   </div>
 
                   <div class="CreateProduct__GeneralInfor__StatusId__Status__2">
                     <lable>Hết hàng</lable>
-                    <input type="radio" />
+                    <input
+                      id="CreateProduct__GeneralInfor__StatusId__Status__2"
+                      value="CreateProduct__GeneralInfor__StatusId__Status__2"
+                      name="CreateProduct__GeneralInfor__StatusId__Status"
+                      type="radio"
+                    />
                   </div>
                 </div>
 
                 <div class="CreateProduct__GeneralInfor__StatusId__Id">
                   <lable>Mã sản phẩm</lable>
                   <input
-                    class="m-3"
+                    class="m-3 CreateProduct__GeneralInfor__StatusId__Id__Product"
                     type="text"
                     placeholder="Nhập mã sản phẩm"
                   />
@@ -84,10 +94,18 @@
               <div class="CreateProduct__GeneralInfor__outstanding">
                 <p>Sản phẩm này có dùng để hiện thị sản phẩm nỗi bật không ?</p>
                 <lable class="m-2">Có</lable>
-                <input type="radio" />
+                <input
+                  name="CreateProduct__GeneralInfor__outstanding"
+                  value="CreateProduct__GeneralInfor__outstanding__1"
+                  type="radio"
+                />
 
                 <label class="m-2">Không</label>
-                <input type="radio" />
+                <input
+                  name="CreateProduct__GeneralInfor__outstanding"
+                  value="CreateProduct__GeneralInfor__outstanding__2"
+                  type="radio"
+                />
               </div>
             </div>
 
@@ -165,7 +183,8 @@
                       hidden
                     />
                     <!-- thẻ input này dùng checkbox để hỗ trợ xóa -->
-                    <input type="checkbox" class="group-checkbox-color" /> Chọn nhóm này
+                    <input type="checkbox" class="group-checkbox-color" /> Chọn
+                    nhóm này
 
                     <img
                       class="addImgAvt"
@@ -231,7 +250,7 @@
                 <h4 class="fw-bold">Phân loại</h4>
                 <p>Phân loại sản phẩm</p>
 
-                <select class="form-control">
+                <select class="form-control CreateProduct__GeneralInfor__UploadImg__Category__Product__Type">
                   -- Lựa chọn --
                   <option>Áo ngắn tay</option>
                   <option>Áo dài tay</option>
