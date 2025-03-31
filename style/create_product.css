@@ -162,6 +162,10 @@ body {
   font-weight: bold;
 }
 
+.templateItem {
+  background-color: red;
+}
+
 .CreateProduct__GeneralInfor__UploadImg__Size {
   background-color: #f9f9f9;
   padding: 20px;

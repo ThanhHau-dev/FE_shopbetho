@@ -3,130 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Hình Ảnh</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .image-group {
-            border: 2px dashed #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .image-slot {
-            width: 80px;
-            height: 80px;
-            border: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .image-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-        }
-        .image-slot input {
-            display: none;
-        }
-        .add-button, .submit-button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            background: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .submit-button {
-            background: green;
-        }
-    </style>
+    <title>Upload ảnh</title>
 </head>
 <body>
-    <div class="container">
-        <h2 style="text-align: center;">Quản Lý Hình Ảnh</h2>
-        <button class="add-button" onclick="addImageGroup()">Thêm khu vực ảnh</button>
-        <form id="imageForm"></form>
-        <button class="submit-button" onclick="submitImages()">Gửi ảnh</button>
-    </div>
+
+    <!-- code này khá hay, phân tích và bắt luồng theo code này -->
+
+    <form id="uploadForm">
+        <div id="imageGroups"></div> <!-- Nơi chứa các nhóm ảnh -->
+
+        <button type="button" onclick="addImageGroup()">Thêm nhóm ảnh</button>
+        <button type="button" onclick="submitImages()">Gửi ảnh</button>
+    </form>
 
     <script>
-        // chỗ này là khởi tạo hàm thêm ảnh
+        let groupIndex = 0;
+
         function addImageGroup() {
-            const form = document.getElementById('imageForm'); // DOM phần tử để render
-            const container = document.createElement('div'); // tạo phần tử mới
-            container.className = 'image-group'; // add css cho phần tử vừa tạo
-            
-            // tạo ô chọn ảnh, vòng lặp chạy 5 lần
-            for (let i = 0; i < 5; i++) {
+            groupIndex++;
+            let groupDiv = document.createElement('div');
+            groupDiv.className = 'image-group';
+            groupDiv.setAttribute('data-index', groupIndex);
 
-                const slot = document.createElement('label'); // lại tiếp tục tạo phần tử
-                slot.className = 'image-slot'; // add css cho phần tử
-                
-                const input = document.createElement('input'); // tiếp tục tạo phần tử
-                input.type = 'file'; // gắn kiểu cho phần tử
-                input.accept = 'image/*'; // cho phần tử chức năng chọn hình ảnh
-                input.onchange = function(event) { previewImage(event, slot); };
-                
-                slot.appendChild(input); // đưa phần tử vô phần tử cha
-                slot.innerHTML += '<span>+</span>'; // thay đổi nội dung phần tử
-                container.appendChild(slot); // lại tiếp tục đưa phần tử vào phần tử cha
+            groupDiv.innerHTML = `
+                <h3>Nhóm ảnh ${groupIndex}</h3>
+                <label>Thumbnail:</label>
+                <input type="file" name="thumbnail_${groupIndex}" accept="image/*"><br><br>
 
-                // chỗ đưa phần tử vào này hơi lòng vòng, từ con tới cha tới cố
-            }
-            
-            // Dùng phương thức để add phần tử mới vào 
-            form.appendChild(container);
+                <label>Chi tiết 1:</label>
+                <input type="file" name="detail_${groupIndex}_1" accept="image/*"><br>
+                <label>Chi tiết 2:</label>
+                <input type="file" name="detail_${groupIndex}_2" accept="image/*"><br>
+                <label>Chi tiết 3:</label>
+                <input type="file" name="detail_${groupIndex}_3" accept="image/*"><br>
+                <label>Chi tiết 4:</label>
+                <input type="file" name="detail_${groupIndex}_4" accept="image/*"><br><br>
+            `;
+
+            document.getElementById('imageGroups').appendChild(groupDiv);
         }
 
-        // function này dùng để duyệt file từ máy người dùng và hiển thị nó
-        function previewImage(event, slot) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    slot.innerHTML = `<img src="${e.target.result}">`;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-        
-        // function này dùng để gửi về BE, nhưng chưa hoàn thiện, kệ mẹ nó
         function submitImages() {
-            const imageGroups = [];
+            let formData = new FormData();
+
             document.querySelectorAll('.image-group').forEach(group => {
-                let images = [];
-                group.querySelectorAll('input[type=file]').forEach(input => {
-                    if (input.files.length > 0) {
-                        images.push(input.files[0].name);
-                    }
-                });
-                if (images.length > 0) {
-                    imageGroups.push({ representative: images[0], images: images });
+                let index = group.getAttribute('data-index');
+
+                let thumbnail = group.querySelector(`input[name="thumbnail_${index}"]`).files[0];
+                let details = [];
+                for (let i = 1; i <= 4; i++) {
+                    let file = group.querySelector(`input[name="detail_${index}_${i}"]`).files[0];
+                    if (file) details.push(file);
+                }
+
+                if (thumbnail && details.length === 4) {
+                    formData.append(`groups[${index}][thumbnail]`, thumbnail);
+                    details.forEach((file, i) => {
+                        formData.append(`groups[${index}][details][${i}]`, file);
+                    });
                 }
             });
-            
-            console.log('Dữ liệu gửi đi:', imageGroups);
-            alert('Dữ liệu ảnh đã được gửi!');
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch(error => console.error('Error:', error));
         }
     </script>
+
 </body>
 </html>
