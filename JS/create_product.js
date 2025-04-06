@@ -6,7 +6,7 @@
   4. Xử lý locgic phần gom nhóm dữ liệu của phần thêm màu -->
   5. Xử lý phần dữ liệu cho phần tạo size --> xong
   6. Xử lý dữ liệu gửi về backend qua fetch  --> xong
-  7. Xử lý các phần chọn 
+  7. Xử lý các phần chọn --> xong
 */
 /***********************************************************/
 // Xử lý phần chọn còn hàng hay hết hàng

@@ -1,38 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-          rel="stylesheet"
-          href="Resource/bootstrap-5.3.3-dist/css/bootstrap.css"
-        />
-        <link
-          rel="stylesheet"
-          href="Resource/bootstrap-5.3.3-dist/css/bootstrap.min.css"
-        />
-        <link
-          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style/index.css" />
-        <title>Trang chủ</title>
-      </head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="Resource/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/index.css" />
+    <title>Trang chủ</title>
+  </head>
 
+  <style>
+    .btn__body__icon__facebook__daddy {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+    }
+
+    .btn__body__icon__facebook__daddy__backgroud {
+      position: fixed;
+    bottom: 170px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0084ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    cursor: pointer;
+    animation: shake 0.9s infinite;
+    }
+
+    .bxl-facebook-circle {
+      position: relative; /* Đảm bảo hình ảnh đứng yên */
+      width: 50px;
+      z-index: 2;
+      animation: shake-around-axis 0.4s infinite alternate;
+    }
+
+    /* Định nghĩa keyframes cho hiệu ứng rung lắc */
+    @keyframes shake {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      70% {
+        transform: scale(1.5); /* Mức độ mở rộng */
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Tạo hiệu ứng lắc cho hình icon */
+    @keyframes shake-around-axis {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(8deg);
+      }
+      50% {
+        transform: rotate(-8deg);
+      }
+      75% {
+        transform: rotate(8deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  </style>
+
+  <body>
     <span class="btn__body__icon">
-        <div class="btn__body">
-          <p>Hỗ trợ ngay</p>
-          <img src="Resource/img/img button body.png" />
-        </div>
-  
+      <div class="btn__body">
+        <p>Hỗ trợ ngay</p>
+        <img src="Resource/img/img button body.png" />
+      </div>
+
+      <div class="btn__body__icon__facebook__daddy">
+        <div class="btn__body__icon__facebook__daddy__backgroud"></div>
         <i class="bx bxl-facebook-circle"></i>
-        <i class="bx bxl-messenger"></i>
-  
-        <div class="btn__body__zalo">
-          <img src="Resource/img/icon zalo.webp" />
-        </div>
-      </span>
-    
-</body>
+      </div>
+
+      <i class="bx bxl-messenger"></i>
+
+      <div class="btn__body__zalo">
+        <img src="Resource/img/icon zalo.webp" />
+      </div>
+    </span>
+  </body>
 </html>

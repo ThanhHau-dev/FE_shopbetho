@@ -580,6 +580,7 @@ body {
 
 /* css cho nút liên hệ nhanh */
 
+/* class cha của toàn bộ */
 .btn__body__icon {
   position: fixed;
   top: 60%;
@@ -591,16 +592,10 @@ body {
   z-index: 1000;
 }
 
+/* nút liên hệ nhanh */
 .btn__body {
   position: relative;
   display: flex;
-}
-
-.btn__body__icon i {
-  font-size: 60px;
-  color: rgb(52, 52, 255);
-  background-color: white;
-  border-radius: 50%;
 }
 
 .btn__body p {
@@ -611,15 +606,82 @@ body {
   text-transform: uppercase;
 }
 
+/* Kích thước icon ảnh liên hệ nhanh */
 .btn__body img {
   width: 150px;
   height: 100px;
   object-fit: fill;
 }
 
-.btn__body__zalo img {
+/* Kích thước icon mess, facebook */
+.btn__body__icon i {
+  font-size: 60px;
+  color: rgb(52, 52, 255);
+  background-color: white;
+  border-radius: 50%;
+  animation: shake-around-axis 0.4s infinite alternate;
+}
+
+
+
+/* Kích thước ảnh zalo icon */
+.btn__body__zalo__daddy img {
+  position: relative;
   width: 50px;
   height: 50px;
+  animation: shake-around-axis 0.4s infinite alternate;
+}
+
+
+.btn__body__zalo__daddy__backgroud {
+  left: 60px;
+  bottom: 2.5rem;
+  position: fixed;
+  width: 90px;
+  height: 90px;
+  background-color: #0084ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  cursor: pointer;
+  animation: shake 0.9s infinite;
+}
+
+/* hiệu ứng rung lắc */
+@keyframes shake-around-axis {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.5); /* Mức độ mở rộng */
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }
 
 /* ----------------------------------------------------- */
@@ -687,7 +749,6 @@ body {
     z-index: 3000;
     text-transform: uppercase;
     background-color: rgba(0, 0, 0, 0.2); /* Đen với độ trong suốt 50% */
-
   }
 
   .Menu__sidebar__mobile__nav {
@@ -746,11 +807,11 @@ body {
     font-size: 15px;
   }
 
-  .show{
+  .show {
     width: 100%;
   }
 
-  .Menu__sidebar__mobile__nav__input{
+  .Menu__sidebar__mobile__nav__input {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -767,9 +828,8 @@ body {
   .Menu__sidebar__mobile__nav__input__submit {
     display: grid;
     grid-template-columns: 3fr 1fr;
-  width: 100%;
+    width: 100%;
   }
-
 }
 
 /* ---------------------------------------- */
@@ -1083,8 +1143,6 @@ body {
     background-color: #f1f1f1;
   }
 
- 
-
   /* css cho nút liên hệ nhanh bản mobile */
 
   .btn__body__icon {
@@ -1118,5 +1176,11 @@ body {
     display: flex;
     font-size: 25px;
     justify-content: center;
+  }
+
+  /* backgroud cho icon */
+  .btn__body__zalo__daddy__backgroud {
+    left: 10px;
+    bottom: 4rem;
   }
 }

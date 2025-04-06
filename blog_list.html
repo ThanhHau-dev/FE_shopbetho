@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
 
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <link rel="stylesheet" href="style/blog_list.css" />
     <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/footer.css" />
@@ -74,7 +76,8 @@
                 <i class="bx bx-right-arrow-alt"></i>
               </a>
             </div>
-          </div>  <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
             <div class="card">
               <img
                 class="card-img-top"
@@ -96,7 +99,8 @@
                 <i class="bx bx-right-arrow-alt"></i>
               </a>
             </div>
-          </div>  <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
             <div class="card">
               <img
                 class="card-img-top"
@@ -118,7 +122,8 @@
                 <i class="bx bx-right-arrow-alt"></i>
               </a>
             </div>
-          </div>  <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
             <div class="card">
               <img
                 class="card-img-top"
@@ -140,7 +145,8 @@
                 <i class="bx bx-right-arrow-alt"></i>
               </a>
             </div>
-          </div>  <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
             <div class="card">
               <img
                 class="card-img-top"
@@ -162,7 +168,8 @@
                 <i class="bx bx-right-arrow-alt"></i>
               </a>
             </div>
-          </div>  <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
             <div class="card">
               <img
                 class="card-img-top"
@@ -192,31 +199,7 @@
     <footer class="footer"></footer>
 
     <!-- Js load file layout header và footer tạm thời khi chưa có BE -->
-    <script>
-      // Gọi file header
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.querySelector(".header").innerHTML = data;
-        })
-        .catch((error) => {
-          console.log("Lỗi khi gọi file header.html:" + error);
-        });
-
-      // Gọi file footer
-      fetch("footer.html")
-        .then(function (res) {
-          return res.text();
-        })
-
-        .then(function (data) {
-          document.querySelector(".footer").innerHTML = data;
-        })
-
-        .catch(function (err) {
-          console.log("Đã xảy ra lỗi khi gọi file footer.html: " + err);
-        });
-    </script>
+    <script src="./JS/blog_list.js"></script>
 
     <!-- js của bootrap -->
     <script src="Resource/bootstrap-5.3.3-dist/js/bootstrap.js"></script>

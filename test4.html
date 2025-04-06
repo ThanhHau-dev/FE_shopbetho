@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nút gọi nhanh</title>
+    <style>
+        /* Container chính */
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Hiệu ứng nền tỏa ra */
+        .pulse-background {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(173, 216, 230, 0.6); /* Xanh nhạt */
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 1s infinite ease-out;
+        }
+
+        /* Hiệu ứng xoay cho icon */
+        .phone-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: url('https://cdn-icons-png.flaticon.com/512/126/126341.png') no-repeat center/contain;
+            border-radius: 50%;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 0.2s infinite linear alternate;
+        }
+
+        /* Keyframes hiệu ứng tỏa sáng */
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes hiệu ứng xoay */
+        @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(8deg);
+    }
+    50% {
+      transform: rotate(-8deg);
+    }
+    75% {
+      transform: rotate(8deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+    </style>
+</head>
+<body>
+
+    <div class="call-button">
+        <div class="pulse-background"></div>
+        <div class="phone-icon"></div>
+    </div>
+
+</body>
+</html>
