@@ -1,84 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nút gọi nhanh</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        /* Container chính */
-        .call-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-        }
+      /* Mặc định (màn hình lớn) */
+      .product {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+      }
 
-        /* Hiệu ứng nền tỏa ra */
-        .pulse-background {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: rgba(173, 216, 230, 0.6); /* Xanh nhạt */
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse 1s infinite ease-out;
-        }
-
-        /* Hiệu ứng xoay cho icon */
-        .phone-icon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: url('https://cdn-icons-png.flaticon.com/512/126/126341.png') no-repeat center/contain;
-            border-radius: 50%;
-            background-color: white;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: rotate 0.2s infinite linear alternate;
-        }
-
-        /* Keyframes hiệu ứng tỏa sáng */
-        @keyframes pulse {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.6;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        /* Keyframes hiệu ứng xoay */
-        @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(8deg);
-    }
-    50% {
-      transform: rotate(-8deg);
-    }
-    75% {
-      transform: rotate(8deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  }
+      /* Khi chuyển sang class card cho màn hình nhỏ */
+      .card {
+        border: none;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin: 10px 0;
+        transition: all 0.3s ease;
+      }
     </style>
-</head>
-<body>
-
-    <div class="call-button">
-        <div class="pulse-background"></div>
-        <div class="phone-icon"></div>
+  </head>
+  <body>
+    <div class="product-container">
+      <div class="product">
+        <h5 class="product__name">Sản phẩm 1</h5>
+        <p class="product__price">100.000 VND</p>
+      </div>
+      <div class="product">
+        <h5 class="product__name">Sản phẩm 2</h5>
+        <p class="product__price">150.000 VND</p>
+      </div>
+      <!-- ... thêm sản phẩm khác -->
     </div>
 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function updateClassForResponsive() {
+        const products = document.querySelectorAll(".product");
+
+        if (window.innerWidth <= 700) {
+          products.forEach((p) => {
+            p.classList.remove("product");
+            p.classList.add("card");
+          });
+        } else {
+          products.forEach((p) => {
+            p.classList.remove("card");
+            p.classList.add("product");
+          });
+        }
+      }
+
+      // Chạy khi load và khi resize
+      window.addEventListener("load", updateClassForResponsive);
+      window.addEventListener("resize", updateClassForResponsive);
+    </script>
+  </body>
 </html>
