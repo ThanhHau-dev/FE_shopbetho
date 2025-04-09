@@ -260,3 +260,19 @@ body {
     text-align: center;
   }
 }
+
+/* Reponse cho màn hình tablet và mobile */
+
+@media (max-width: 1000px) {
+  .CreateProductMain {
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows: auto auto;
+    margin-top: 50px;
+    gap: 30px;
+  }  
+
+  .CreateProduct__GeneralInfor {
+    padding: 0px;
+  }
+}
