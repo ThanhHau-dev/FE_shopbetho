@@ -247,3 +247,16 @@ body {
   border-radius: 30px;
   margin-top: 20px;
 }
+
+
+/* Reponse màn hình pc nhỏ */
+
+@media (max-width: 1200px) {
+  .CreateProduct__GeneralInfor__UploadImg__ColorAdd__Btn, .CreateProduct__GeneralInfor__UploadImg__SizeAdd__Btn {
+    padding: 0px;
+  }
+
+  .CreateProduct__GeneralInfor__StatusId__Id {
+    text-align: center;
+  }
+}
