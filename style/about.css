@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about__main {
+    margin-top: 10em;
+}
+
+.about__main__mota img {
+    width: 50%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.about__main__action {
+    margin-top: 5em;
+}
+
+.about__main__action h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.about__main__action__btn {
+    margin-top: 50px;
+    border-radius: 20px;
+    width: 20em;
+    padding: 10px;
+    text-transform: uppercase;
+}
