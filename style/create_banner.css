@@ -66,3 +66,12 @@ body {
     width: 12%;
     height: 12%;
 }
+
+/* reponse cho tablet và mobile */
+@media (max-width: 800px) {
+    .CreateBanner__1__add img, .CreateBanner__2__add img {
+        width: 30%;
+        height: 30%;
+        justify-content:center;
+    }
+}
