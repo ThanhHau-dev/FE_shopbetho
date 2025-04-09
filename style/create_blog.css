@@ -180,3 +180,15 @@ body {
     border-radius: 30px;
     margin-top: 20px;
 }
+
+/* Reponse cho tablet và mobile */
+@media (max-width: 1000px) {
+    .CreateProductMain {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .CreateProduct__GeneralInfor {
+        padding: 8px;
+    }
+}
