@@ -117,3 +117,16 @@ body {
     background-color: #f9f9f9;
 
   }
+
+  /* Reponse cho tablet và mobile */
+  @media (max-width: 1000px) {
+    .main__3__collection__img {
+      grid-template-areas: none;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto ;     
+    }
+
+    .main__3__collection__img > * {
+      grid-area: unset;
+    }
+  }
