@@ -1,3 +1,9 @@
+:root {
+  --color-center: #ee3e80;
+  --color-item-cskh:#ffecf3;
+}
+
+
 *{
     margin: 0;
     padding: 0;

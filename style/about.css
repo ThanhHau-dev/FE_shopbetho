@@ -1,3 +1,9 @@
+:root {
+    --color-center: #ee3e80;
+    --color-item-cskh:#ffecf3;
+  }
+  
+
 *{
     margin: 0;
     padding: 0;
@@ -21,6 +27,10 @@
 .about__main__action h1 {
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.about__main__action p{
+    margin-top: 50px;
 }
 
 .about__main__action__btn {
