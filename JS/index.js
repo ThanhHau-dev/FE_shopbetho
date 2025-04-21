@@ -10,7 +10,76 @@ headerMenuMobile1NavSearch.addEventListener("click", () => {
   headerMenuMobile2.style.display = "flex";
 });
 
-// js viết thử cho dropdow 
+
+// js viết cho dropdoww pc
+// Lấy tất cả các nhóm dropdown
+// const dropdownGroups = document.querySelectorAll('.header__menu__2__dropdow');
+
+// dropdownGroups.forEach(group => {
+//   const toggle = group.querySelector('#dropdownToggleHeader');
+//   const menu = group.querySelector('.dropdown-menu-header');
+
+//   if (toggle && menu) {
+//     toggle.addEventListener('click', function (e) {
+//       e.preventDefault();
+
+//       // Ẩn tất cả menu khác
+//       dropdownGroups.forEach(otherGroup => {
+//         const otherMenu = otherGroup.querySelector('.dropdown-menu-header');
+//         if (otherMenu !== menu) {
+//           otherMenu.style.display = 'none';
+//         }
+//       });
+
+//       // Hiện hoặc ẩn menu hiện tại
+//       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+//     });
+//   }
+// });
+
+// // Đóng menu nếu click ra ngoài dropdown
+// document.addEventListener('click', function (e) {
+//   if (!e.target.closest('.header__menu__2__dropdow')) {
+//     dropdownGroups.forEach(group => {
+//       const menu = group.querySelector('.dropdown-menu-header');
+//       if (menu) menu.style.display = 'none';
+//     });
+//   }
+// });
+document.addEventListener('DOMContentLoaded', function () {
+    const toggles = document.querySelectorAll('.header__menu__2__dropdow > a.nav-link');
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const parent = this.parentElement;
+        const submenu = parent.querySelector('ul.dropdown-menu-header');
+        
+        // Đóng các dropdown khác cùng cấp
+        const siblings = parent.parentElement.querySelectorAll('ul.dropdown-menu-header');
+        siblings.forEach(el => {
+          if (el !== submenu) el.style.display = 'none';
+        });
+
+        // Toggle menu
+        if (submenu) {
+          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+        }
+      });
+    });
+
+    // Ẩn tất cả dropdown khi click bên ngoài
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.header__menu__2__dropdow')) {
+        document.querySelectorAll('.dropdown-menu-header').forEach(menu => {
+          menu.style.display = 'none';
+        });
+      }
+    });
+  });
+/*---------------------------------------*/ 
+
+// js viết thử cho dropdow pc màn nhỏ và tablet mobile
 const dropdownOpen = document.querySelector(".header__menu__mobile__1__nav__dropdow");
 
 const dropdownBtns = document.querySelectorAll(".Menu__sidebar__mobile__nav__dropdow__btn");

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .header__menu__2__dropdow {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu-header {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu-header li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu-header li a:hover {
+  background-color: #f0f0f0;
+}
+
+</style>
+<body>
+    <div class="dropdown">
+        <a class="nav-link" href="#" id="dropdownToggle">Đồ sơ sinh</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Quần áo</a></li>
+          <li><a href="#">Khăn</a></li>
+          <li><a href="#">Bao tay</a></li>
+          <li><a href="#">Chân mũ</a></li>
+        </ul>
+      </div>
+
+      <script>
+        const toggle = document.getElementById('dropdownToggleHeader');
+        const menu = document.querySelector('.dropdown-menu-header');
+      
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault(); // Ngăn chuyển trang
+          menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        });
+      
+        // Đóng dropdown nếu nhấn ra ngoài
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.header__menu__2__dropdow')) {
+            menu.style.display = 'none';
+          }
+        });
+      </script>
+      
+      
+</body>
+</html>

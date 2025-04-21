@@ -101,6 +101,44 @@ body {
   display: none;
 }
 
+
+/* Cập nhật dropdow ở header */
+.header__menu__2__dropdow {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu-header {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu-header li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu-header li a:hover {
+  background-color: #f0f0f0;
+}
+.header__menu__2__dropdow li .header__menu__2__dropdow > ul.dropdown-menu-header {
+  top: 0;
+  left: 200%;
+}
+
+
+
+
 /* --------------------------------------- */
 
 .main__1 {
